@@ -1,10 +1,10 @@
 @font-face {
   font-family: iransans;
-  src: url('Font/iransans/iransans.woff2');
+  src: url("Font/iransans/iransans.woff2");
 }
 @font-face {
   font-family: vazir;
-  src: url('Font/Vazir.ttf');
+  src: url("Font/Vazir.ttf");
 }
 body {
   margin: 0;
@@ -19,7 +19,7 @@ html {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -36,9 +36,16 @@ code {
 .nav-link:hover {
   color: #c1c1c1 !important;
 }
-.cover {
-  background-color: darkslategray;
-  color: #c1c1c1;
-  padding: 20px 50px;
-  border-radius: 5px;
+#contain {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #999;
+}
+#welcom {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+#content {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 1px solid #c1c1c1;
 }
