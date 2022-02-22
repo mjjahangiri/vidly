@@ -1,0 +1,44 @@
+@font-face {
+  font-family: iransans;
+  src: url('Font/iransans/iransans.woff2');
+}
+@font-face {
+  font-family: vazir;
+  src: url('Font/Vazir.ttf');
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: vazir, iransans !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  padding: 0;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.rtl {
+  direction: rtl !important;
+}
+.navbar {
+  z-index: 2;
+}
+.nav-item:hover {
+  background-color: darkslategray;
+  border-radius: 5px;
+}
+.nav-link:hover {
+  color: #c1c1c1 !important;
+}
+.cover {
+  background-color: darkslategray;
+  color: #c1c1c1;
+  padding: 20px 50px;
+  border-radius: 5px;
+}
