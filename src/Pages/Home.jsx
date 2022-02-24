@@ -1,12 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default function Home() {
   return (
     <div className="pt-4 d-flex align-items-center rtl justify-content-center w-75 mx-auto">
-      <div
-        id="contain"
-        className="row w-100 d-flex align-items-center justify-content-center"
-      >
+      <div className="row contain w-100 d-flex align-items-center justify-content-center">
         <div id="welcom" className="col-3 py-5 px-3 d-flex flex-column">
           <h3 className="py-2 px-5 text-center m-0 my-3">سلام کاربر عزیز</h3>
           <h5 className="py-2 px-5 text-center m-0 my-3">به Vidly خوش اومدی</h5>
