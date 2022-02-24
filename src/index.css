@@ -1,10 +1,10 @@
 @font-face {
   font-family: iransans;
-  src: url("Font/iransans/iransans.woff2");
+  src: url('Font/iransans/iransans.woff2');
 }
 @font-face {
   font-family: vazir;
-  src: url("Font/Vazir.ttf");
+  src: url('Font/Vazir.ttf');
 }
 body {
   margin: 0;
@@ -19,7 +19,7 @@ html {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -36,7 +36,7 @@ code {
 .nav-link:hover {
   color: #c1c1c1 !important;
 }
-#contain {
+.contain {
   border-radius: 10px;
   box-shadow: 5px 5px 10px #999;
 }
@@ -48,4 +48,33 @@ code {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-right: 1px solid #c1c1c1;
+}
+.movie:hover > div {
+  display: flex !important;
+  transition: all 0.2s ease-in-out !important;
+}
+.card-img-overlay {
+  position: absolute;
+  top: 5% !important;
+  right: 5% !important;
+  bottom: 5% !important;
+  left: 5% !important;
+  padding: 0rem !important;
+  border-radius: calc(0.25rem - 1px);
+  background-color: rgb(39, 39, 39);
+  opacity: 0.7;
+  color: #f5f5f5;
+}
+.card-img-overlay:hover {
+  position: absolute;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  padding: 0rem !important;
+  border-radius: calc(0.25rem - 1px);
+  background-color: rgb(39, 39, 39);
+  opacity: 0.8;
+  border-radius: 15px !important;
+  color: #f5f5f5;
 }
