@@ -4,16 +4,19 @@
       "Title": "The Lion King",
       "Genre": "Animation",
       "Year": "2019",
+      "like": "false",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg"
     },
     {
       "Title": "Mowgli: Legend of the Jungle",
       "Genre": "Animation",
+      "like": "false",
       "Year": "2018",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMjMzODc2NzU5MV5BMl5BanBnXkFtZTgwNTMwMTE3NjM@._V1_SX300.jpg"
     },
     {
       "Title": "Doctor Strange",
+      "like": "false",
       "Genre": "Action",
       "Year": "2016",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNjgwNzAzNjk1Nl5BMl5BanBnXkFtZTgwMzQ2NjI1OTE@._V1_SX300.jpg"
@@ -21,69 +24,79 @@
     {
       "Title": "John Wick",
       "Genre": "Action",
+      "like": "false",
       "Year": "2014",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_SX300.jpg"
     },
     {
       "Title": "Batman",
       "Genre": "Action",
+      "like": "false",
       "Year": "1989",
       "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_.jpg"
     },
     {
       "Title": "The Dark Knight",
       "Genre": "Action",
+      "like": "false",
       "Year": "2008",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
     {
       "Title": "Batman v Superman: Dawn of Justice",
       "Genre": "Action",
+      "like": "false",
       "Year": "2016",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
     {
       "Title": "The Dark Knight Rises",
       "Genre": "Action",
+      "like": "false",
       "Year": "2012",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
     {
       "Title": "Batman Begins",
       "Genre": "Action",
+      "like": "false",
       "Year": "2005",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BYzc4ODgyZmYtMGFkZC00NGQyLWJiMDItMmFmNjJiZjcxYzVmXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
     {
       "Title": "The LEGO Batman Movie",
       "Genre": "Animation",
+      "like": "false",
       "Year": "2017",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BMTcyNTEyOTY0M15BMl5BanBnXkFtZTgwOTAyNzU3MDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
     {
       "Title": "Batman Forever",
       "Genre": "Action",
+      "like": "false",
       "Year": "1995",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BNWY3M2I0YzItNzA1ZS00MzE3LThlYTEtMTg2YjNiOTYzODQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
     {
       "Title": "Batman & Robin",
       "Genre": "Action",
+      "like": "false",
       "Year": "1997",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BMGQ5YTM1NmMtYmIxYy00N2VmLWJhZTYtN2EwYTY3MWFhOTczXkEyXkFqcGdeQXVyNTA2NTI0MTY@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
     {
       "Title": "Batman Returns",
       "Genre": "Action",
+      "like": "false",
       "Year": "1992",
       "Poster": "https://ia.media-imdb.com/images/M/MV5BOGZmYzVkMmItM2NiOS00MDI3LWI4ZWQtMTg0YWZkODRkMmViXkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
     }
   ],
   "Genres": [
-    { "id": 1, "name": "Action" },
-    { "id": 2, "name": "Comedy" },
-    { "id": 3, "name": "Drama" },
-    { "id": 4, "name": "Animation" },
-    { "id": 5, "name": "Family" }
+    { "id": 1, "ENname": "Action", "FAname": "اکشن" },
+    { "id": 2, "ENname": "Comedy", "FAname": "کمدی" },
+    { "id": 3, "ENname": "Drama", "FAname": "درام" },
+    { "id": 4, "ENname": "Animation", "FAname": "انیمیشن" },
+    { "id": 5, "ENname": "Family", "FAname": "خانوادگی" }
   ]
 }
