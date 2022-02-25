@@ -13,7 +13,7 @@ export default function Register() {
           <Input label="ایمیل" type="email" />
           <Input label="رمز عبور" type="password" />
           <Input label="تکرار رمز عبور" type="password" />
-          <Button type="submit" color="primary" title="ثبت نام" />
+          <Button type="submit" title="ثبت نام" />
         </form>
       </div>
     </div>

@@ -1,27 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function MovieSection({ image, title, year, like }) {
+export default function MovieSection({ link, title, year }) {
   return (
-    <div
-      className="d-flex position-relative movie flex-column"
-      style={{
-        backgroundImage: `url(${image})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '175px',
-        height: '250px',
-      }}
-    >
-      <div className="card-img-overlay d-none">
-        <div className="d-flex w-100 px-4 flex-row position-absolute top-0 mt-4 align-items-center justify-content-between">
-          <span>{like}</span>
-          <span>{year}</span>
+    <Link to={link} className="text-decoration-none text-reset mx-auto">
+      <li className="d-flex flex-column justify-content-between text-center">
+        <div className="movieSection text-center d-flex align-items-center justify-content-center flex-column text-light">
+          <p className="small p-2 m-0">{title}</p>
+          <p className="p-2 m-0">{year}</p>
         </div>
-        <div className="d-flex w-100 px-4 position-absolute bottom-0 mb-4 align-items-center justify-content-center">
-          {title}
-        </div>
-      </div>
-    </div>
+      </li>
+    </Link>
   );
 }

@@ -10,7 +10,7 @@ export default function Login() {
           <h3 className="text-center m-0 mb-4">ورود</h3>
           <Input label="نام کاربری" type="text" />
           <Input label="رمز عبور" type="password" />
-          <Button type="submit" color="primary" title="ورود" />
+          <Button type="submit" title="ورود" />
         </form>
       </div>
     </div>

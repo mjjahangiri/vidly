@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -31,7 +31,7 @@ export default function Header() {
                 فیلم ها
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-item ">
               <NavLink className="nav-link" to="/favorite">
                 موردعلاقه ها
               </NavLink>
