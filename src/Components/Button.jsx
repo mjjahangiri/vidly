@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 export default function Button({ type, title }) {
   return (
-    <button type={type} class="btn px-5">
+    <button type={type} className="btn px-5">
       {title}
     </button>
   );

@@ -1,10 +1,10 @@
 @font-face {
   font-family: iransans;
-  src: url('Font/iransans/iransans.woff2');
+  src: url("Font/iransans/iransans.woff2");
 }
 @font-face {
   font-family: vazir;
-  src: url('Font/Vazir.ttf');
+  src: url("Font/Vazir.ttf");
 }
 body {
   margin: 0;
@@ -19,12 +19,19 @@ html {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .rtl {
   direction: rtl !important;
+}
+#root {
+  background-image: url("https://goggler.my/wp-content/uploads/2020/08/interstellar-54607ec4784a4.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .navbar {
   z-index: 2;
