@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light rtl p-1">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark rtl p-1">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Vidly
@@ -43,7 +43,9 @@ export default function Header() {
                 ورود
               </NavLink>
             </li>
-            <span>/</span>
+            <span style={{ color: "#c1c1c1" }} className="px-1">
+              /
+            </span>
             <li className="nav-item">
               <NavLink className="nav-link" to="/register">
                 عضویت

@@ -98,14 +98,38 @@ button {
   border-radius: 7px !important;
 }
 .movieSection {
+  border-radius: 7px;
+  height: 200px;
+  width: 150px;
+}
+.movieOverlay {
   background-color: darkslategray;
   border-radius: 7px;
   height: 200px;
   width: 150px;
-  margin: 5px;
+  opacity: 0.7;
+}
+.movieContent {
+  height: 200px;
+  width: 150px;
+  color: #c1c1c1;
+  display: none;
 }
 .movieSection:hover {
-  opacity: 0.9;
-  transform: translateX(5px);
+  transform: translateY(-10px);
   transition: all 0.2s ease-in-out;
+}
+.movieSection:hover > .movieContent {
+  display: flex;
+}
+.genreLink:hover {
+  background-color: darkslategray;
+  border-radius: 5px;
+  padding: 0px 10px;
+  transform: translateY(5px);
+  transition: all 0.2s ease-in-out;
+  color: #c1c1c1 !important;
+}
+.genreLink {
+  padding: 0px 10px;
 }
