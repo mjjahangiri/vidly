@@ -26,9 +26,8 @@ code {
 .rtl {
   direction: rtl !important;
 }
-#root {
+.main {
   background-image: url("https://goggler.my/wp-content/uploads/2020/08/interstellar-54607ec4784a4.jpg");
-  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -39,6 +38,7 @@ code {
 .nav-item:hover {
   background-color: darkslategray;
   border-radius: 5px;
+  color: #c1c1c1 !important;
 }
 .nav-link:hover {
   color: #c1c1c1 !important;
@@ -126,10 +126,20 @@ button {
   background-color: darkslategray;
   border-radius: 5px;
   padding: 0px 10px;
-  transform: translateY(5px);
+  transform: translateY(-5px);
   transition: all 0.2s ease-in-out;
   color: #c1c1c1 !important;
 }
 .genreLink {
   padding: 0px 10px;
+}
+i {
+  cursor: pointer;
+}
+i:hover {
+  font-size: larger;
+}
+.GenreTitr {
+  background-color: darkslategrey !important;
+  color: #c1c1c1 !important;
 }

@@ -1,21 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function MovieSection({
-  link,
-  background,
-  title,
-  year,
-  like,
-  rate,
-  onClick,
-}) {
+export default function MovieSection({ movie, onClick }) {
+  const { title, genre, year, like, rate, poster } = movie;
   return (
-    <Link to={link} className="text-decoration-none text-reset mx-auto">
+    <Link to="/" className="text-decoration-none text-reset mx-auto">
       <li className="d-flex flex-column justify-content-between text-center">
         <div
           style={{
-            backgroundImage: `url(${background})`,
+            backgroundImage: `url(${poster})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -25,11 +18,14 @@ export default function MovieSection({
           <div className="movieContent">
             <div className="movieOverlay"></div>
             <div className="d-flex position-absolute top-0 pt-4 justify-content-around w-100 ">
-              <span className="d-flex" onClick={onClick}>
+              <span className="d-flex">
                 {like ? (
-                  <i className="bi bi-heart-fill"></i>
+                  <i
+                    className="bi bi-heart-fill"
+                    onClick={() => onClick(movie)}
+                  ></i>
                 ) : (
-                  <i className="bi bi-heart"></i>
+                  <i className="bi bi-heart" onClick={() => onClick(movie)}></i>
                 )}
               </span>
               <span className="d-flex">{rate}</span>

@@ -1,204 +1,252 @@
 {
   "Movies": [
     {
+      "id": 1,
       "title": "Special Delivery",
       "genre": "Action",
       "year": "2022",
-      "like": "false",
+      "like": true,
       "rate": "6.5",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BZDg2NGUyODgtM2E3Yi00NmJiLWEzM2ItMjFlODNhZTk2NWM3XkEyXkFqcGdeQXVyMTQ3MjI2NDI2._V1_SX500.jpg"
     },
     {
-      "Title": "Doctor Strange",
-      "like": "false",
-      "Genre": "Action",
-      "Year": "2016",
+      "id": 2,
+      "title": "Doctor Strange",
+      "genre": "Action",
+      "year": "2016",
+      "like": false,
       "rate": "7.5",
       "poster": "https://digimovie.info/wp-content/uploads/2019/07/Doctor-Strange.jpg"
     },
     {
-      "Title": "John Wick",
-      "Genre": "Action",
-      "like": "false",
-      "Year": "2014",
+      "id": 3,
+      "title": "John Wick",
+      "genre": "Action",
+      "like": false,
+      "year": "2014",
       "rate": "7.4",
       "poster": "https://digimovie.info/wp-content/uploads/2019/07/John-Wick.jpg"
     },
     {
-      "Title": "The Dark Knight",
-      "Genre": "Action",
-      "like": "false",
-      "Year": "2008",
+      "id": 4,
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "like": false,
+      "year": "2008",
       "rate": "9",
       "poster": "https://digimovie.info/wp-content/uploads/2020/03/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._UX500.jpg"
     },
     {
+      "id": 5,
       "title": "The Matrix Resurrections",
       "genre": "Action",
       "year": "2021",
-      "like": "false",
+      "like": false,
       "rate": "6.7",
       "poster": "https://digimovie.info/wp-content/uploads/2021/12/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX500.jpg"
     },
     {
+      "id": 6,
       "title": "Licorice Pizza",
       "genre": "Comedy",
       "year": "2021",
-      "like": "false",
+      "like": false,
       "rate": "6.2",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BMGM5ZTFmYWQtMGRiOS00YzI1LTkyMzAtNGIzNWFjZmFlYTFhXkEyXkFqcGdeQXVyMTAxNDE3MTE5._V1_SX500.jpg"
     },
     {
+      "id": 7,
       "title": "Frank",
       "genre": "Comedy",
       "year": "2014",
-      "like": "false",
+      "like": false,
       "rate": "7",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BMjM0OTczMTcxOV5BMl5BanBnXkFtZTgwMDU1MDUwMjE@._V1_SX500.jpg"
     },
     {
+      "id": 8,
       "title": "Sisters",
       "genre": "Comedy",
       "year": "2015",
-      "like": "false",
+      "like": false,
       "rate": "6",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BMjM3MzQ5NDE5MF5BMl5BanBnXkFtZTgwODE5OTQyNzE@._V1_SX500.jpg"
     },
     {
+      "id": 9,
       "title": "Last Vegas",
       "genre": "Comedy",
       "year": "2013",
-      "like": "false",
+      "like": false,
       "rate": "6.6",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BNjNiYWQ0NDYtNjIzYi00N2M5LTliZGUtNGQ3N2I4YzlkZDkzXkEyXkFqcGdeQXVyMDAwMDAwNA@@._V1_SX500.jpg"
     },
     {
+      "id": 10,
       "title": "Fist Fight",
       "genre": "Comedy",
       "year": "2017",
-      "like": "false",
+      "like": false,
       "rate": "5.6",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BMTg0NzkyMjE5NF5BMl5BanBnXkFtZTgwMDE5NTg3MDI@._V1_SX500.jpg"
     },
     {
+      "id": 11,
       "title": "Drive my car",
       "genre": "Drama",
       "year": "2021",
-      "like": "false",
+      "like": false,
       "rate": "7.9",
       "poster": "https://digimovie.info/wp-content/uploads/2021/12/MV5BYTQ0MmJiODMtOGQ5Ni00OTUzLWI0ODUtYjM1YTA1NTMzODc0XkEyXkFqcGdeQXVyODgzNDIwODA@._V1_SX500.jpg"
     },
     {
+      "id": 12,
       "title": "No Exit",
       "genre": "Drama",
       "year": "2022",
-      "like": "false",
+      "like": false,
       "rate": "6.1",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/61f9720a84bff.jpg"
     },
     {
+      "id": 13,
       "title": "The True Cost",
       "genre": "Drama",
       "year": "2015",
-      "like": "false",
+      "like": false,
       "rate": "7.7",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BNWYxODkyOTYtNjJkMy00MTlkLTgzM2QtZWMzNGIxOGQ4NDJmXkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_SX500.jpg"
     },
     {
+      "id": 14,
       "title": "Elle",
       "genre": "Drama",
       "year": "2016",
-      "like": "false",
+      "like": false,
       "rate": "7.1",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/filters-quality70-1.jpg"
     },
     {
+      "id": 15,
       "title": "Fire heart",
       "genre": "Animation",
       "year": "2022",
-      "like": "false",
+      "like": false,
       "rate": "6.2",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BMGM5ZTFmYWQtMGRiOS00YzI1LTkyMzAtNGIzNWFjZmFlYTFhXkEyXkFqcGdeQXVyMTAxNDE3MTE5._V1_SX500.jpg"
     },
     {
+      "id": 16,
       "title": "Despicable me 3",
       "genre": "Animation",
       "year": "2017",
-      "like": "false",
+      "like": false,
       "rate": "6.3",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BZWZjNmY1YmUtODE0My00ZTkzLWFjNDYtNTFiODQwYjg4MTE1XkEyXkFqcGdeQXVyNjY0Mzk3NzA@._V1_SX500.jpg"
     },
     {
+      "id": 17,
       "title": "The House",
       "genre": "Animation",
       "year": "2022",
-      "like": "false",
+      "like": false,
       "rate": "6.9",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BOWM4NDgyN2QtN2UzNS00Y2YyLWJjMTgtNjljNjk2MmJjMjdmXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_SX500.jpg"
     },
     {
-      "Title": "The Lion King",
-      "Genre": "Animation",
-      "Year": "2019",
-      "like": "false",
+      "id": 18,
+      "title": "The Lion King",
+      "genre": "Animation",
+      "year": "2019",
+      "like": false,
       "rate": "6.9",
       "poster": "https://digimovie.info/wp-content/uploads/2019/10/Lion-KIng-poster-fanmade-aliciamartin851-deviantart-768x915.jpg"
     },
     {
-      "Title": "Mowgli: Legend of the Jungle",
-      "Genre": "Animation",
-      "like": "false",
-      "Year": "2018",
+      "id": 19,
+      "title": "Mowgli: Legend of the Jungle",
+      "genre": "Animation",
+      "like": false,
+      "year": "2018",
       "rate": "6.5",
       "poster": "https://digimovie.info/wp-content/uploads/2018/12/Mowgli-Legend-of-the-Jungle.jpg"
     },
     {
-      "Title": "Silver Lining Playbook",
-      "Genre": "Romantic",
-      "like": "false",
-      "Year": "2012",
+      "id": 20,
+      "title": "Silver Lining Playbook",
+      "genre": "Romantic",
+      "like": true,
+      "year": "2012",
       "rate": "7.7",
       "poster": "https://digimovie.info/wp-content/uploads/2019/06/Silver-Linings-Playbook-289x428.jpg"
     },
     {
-      "Title": "Can You Keep a Secret",
-      "Genre": "Romantic",
-      "like": "false",
-      "Year": "2019",
+      "id": 21,
+      "title": "Can You Keep a Secret",
+      "genre": "Romantic",
+      "like": false,
+      "year": "2019",
       "rate": "5.3",
       "poster": "https://digimovie.info/wp-content/uploads/2020/04/MV5BMGYxNjQ0MDItODllNS00MTY2LTg2ZGItMzQ0YWNhMjVmNTFjXkEyXkFqcGdeQXVyNDM2NTg0OTQ@._UX500-289x428.jpg"
     },
     {
-      "Title": "Madame",
-      "Genre": "Romantic",
-      "like": "false",
-      "Year": "2017",
+      "id": 22,
+      "title": "Madame",
+      "genre": "Romantic",
+      "like": false,
+      "year": "2017",
       "rate": "5.7",
       "poster": "https://digimovie.info/wp-content/uploads/2019/10/madame-teaser-302x428.jpg"
     },
     {
-      "Title": "The Green Inferno",
-      "Genre": "Scary",
-      "like": "false",
-      "Year": "2013",
+      "id": 23,
+      "title": "The Green Inferno",
+      "genre": "Scary",
+      "like": false,
+      "year": "2013",
       "rate": "5.3",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BN2IyYjc0ZmQtZGRlZC00MzBkLWI0MGQtZTM5Y2U2OWVhYmQ5XkEyXkFqcGdeQXVyMjQwMjk0NjI@._V1_SX500.jpg"
     },
     {
-      "Title": "A Banquet",
-      "Genre": "Scary",
-      "like": "false",
-      "Year": "2021",
+      "id": 24,
+      "title": "A Banquet",
+      "genre": "Scary",
+      "like": false,
+      "year": "2021",
       "rate": "5.7",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BMDc0NGY2MWQtNjIxZC00OGIxLWIyY2YtMTdhY2NhMjAwYTMyXkEyXkFqcGdeQXVyMTE1MzI2NzIz._V1_SX500.jpg"
     }
   ],
   "Genres": [
-    { "id": 1, "ENname": "Action", "FAname": "اکشن" },
-    { "id": 2, "ENname": "Comedy", "FAname": "کمدی" },
-    { "id": 3, "ENname": "Drama", "FAname": "درام" },
-    { "id": 4, "ENname": "Animation", "FAname": "انیمیشن" },
-    { "id": 5, "ENname": "Romantic", "FAname": "عاشقانه" },
-    { "id": 6, "ENname": "Scary", "FAname": "ترسناک" }
+    {
+      "id": 1,
+      "ENname": "Action",
+      "FAname": "اکشن"
+    },
+    {
+      "id": 2,
+      "ENname": "Comedy",
+      "FAname": "کمدی"
+    },
+    {
+      "id": 3,
+      "ENname": "Drama",
+      "FAname": "درام"
+    },
+    {
+      "id": 4,
+      "ENname": "Animation",
+      "FAname": "انیمیشن"
+    },
+    {
+      "id": 5,
+      "ENname": "Romantic",
+      "FAname": "عاشقانه"
+    },
+    {
+      "id": 6,
+      "ENname": "Scary",
+      "FAname": "ترسناک"
+    }
   ]
 }

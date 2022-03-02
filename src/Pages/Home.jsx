@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as _ from "lodash";
 import Button from "../Components/Button";
 import Dashboard from "../Components/Dashboard";
 import { Link } from "react-router-dom";
@@ -7,13 +8,13 @@ import RateMovies from "../Components/RateMovies";
 import Genres from "../Components/Genres";
 
 export default class Home extends Component {
-  handleLike = () => {
-    console.log("licked");
-  };
   render() {
+    const { movies, onLike } = this.props;
+    const sortedByYear = _.orderBy(movies, "year", "desc");
+    const sortedByRate = _.orderBy(movies, "rate", "desc");
     return (
-      <div className="pt-5 d-flex align-items-center rtl justify-content-center w-75 mx-auto">
-        <div className="row contain w-100 d-flex align-items-center justify-content-center bg-light">
+      <div className="pt-5 d-flex main align-items-center rtl justify-content-center w-100 mx-auto">
+        <div className="row contain w-75 d-flex align-items-center mb-5 justify-content-center bg-light">
           <div id="welcom" className="col-3 py-5 px-3 d-flex flex-column">
             <h3 className="py-2 px-4 text-center m-0 my-3">سلام مهمان عزیز</h3>
             <h5 className="py-2 px-4 text-center m-0 my-3">
@@ -37,14 +38,14 @@ export default class Home extends Component {
               <h6 className="py-2 px-3 m-0 d-inline-flex text-nowrap">
                 جدیدترین ها
               </h6>
-              <NewMovies sorted="newest" onClick={this.handleLike} />
+              <NewMovies movies={sortedByYear} onClick={onLike} />
             </div>
             <hr className="w-50 my-0 mx-auto" />
             <div className="p-3 d-flex flex-row align-items-center justify-content-between">
               <h6 className="py-2 px-3 m-0 d-inline-flex text-nowrap">
                 محبوب ترین ها
               </h6>
-              <RateMovies sorted="rate" onClick={this.handleLike} />
+              <RateMovies movies={sortedByRate} onClick={onLike} />
             </div>
             <Genres />
             <Dashboard />
