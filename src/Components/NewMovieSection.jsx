@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Like from "./Like";
 
 export default function MovieSection({ movie, onClick }) {
   const { title, genre, year, like, rate, poster } = movie;
@@ -19,14 +20,7 @@ export default function MovieSection({ movie, onClick }) {
             <div className="movieOverlay"></div>
             <div className="d-flex position-absolute top-0 pt-4 justify-content-around w-100 ">
               <span className="d-flex">
-                {like ? (
-                  <i
-                    className="bi bi-heart-fill"
-                    onClick={() => onClick(movie)}
-                  ></i>
-                ) : (
-                  <i className="bi bi-heart" onClick={() => onClick(movie)}></i>
-                )}
+                <Like like={like} onClick={() => onClick(movie)} />
               </span>
               <span className="d-flex">{rate}</span>
             </div>

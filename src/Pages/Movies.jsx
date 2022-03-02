@@ -1,5 +1,6 @@
 import React from "react";
 import Paginate from "../Components/Paginate";
+import Like from "../Components/Like";
 
 export default function Movies({ movies, genres, onLike }) {
   return (
@@ -41,17 +42,7 @@ export default function Movies({ movies, genres, onLike }) {
                   <td className="px-0 py-3 m-0">{movie.year}</td>
                   <td className="px-0 py-3 m-0">{movie.rate}</td>
                   <td className="p-0 m-0">
-                    {movie.like ? (
-                      <i
-                        className=" bi bi-heart-fill"
-                        onClick={() => onLike(movie)}
-                      ></i>
-                    ) : (
-                      <i
-                        className=" bi bi-heart"
-                        onClick={() => onLike(movie)}
-                      ></i>
-                    )}
+                    <Like like={movie.like} onClick={() => onLike(movie)} />
                   </td>
                   <td className="p-0 m-0">
                     <i className="bi bi-x-lg text-danger icon"></i>

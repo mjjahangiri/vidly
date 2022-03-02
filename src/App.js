@@ -26,6 +26,8 @@ export default class App extends Component {
     const movieBody = { ...movie };
     movieBody.like = !movieBody.like;
     await axios.put(`http://localhost:3001/Movies/${movie.id}`, movieBody);
+    const { data: movies } = await axios.get("http://localhost:3001/Movies");
+    this.setState({ movies });
   };
   render() {
     const { movies, genres } = this.state;
