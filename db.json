@@ -5,7 +5,7 @@
       "title": "Special Delivery",
       "genre": "Action",
       "year": "2022",
-      "like": true,
+      "like": false,
       "rate": "6.5",
       "poster": "https://digimovie.info/wp-content/uploads/2022/02/MV5BZDg2NGUyODgtM2E3Yi00NmJiLWEzM2ItMjFlODNhZTk2NWM3XkEyXkFqcGdeQXVyMTQ3MjI2NDI2._V1_SX500.jpg"
     },
@@ -175,7 +175,7 @@
       "id": 20,
       "title": "Silver Lining Playbook",
       "genre": "Romantic",
-      "like": true,
+      "like": false,
       "year": "2012",
       "rate": "7.7",
       "poster": "https://digimovie.info/wp-content/uploads/2019/06/Silver-Linings-Playbook-289x428.jpg"
