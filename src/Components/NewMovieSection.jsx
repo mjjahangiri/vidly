@@ -5,7 +5,7 @@ import Like from "./Like";
 export default function MovieSection({ movie, onClick }) {
   const { title, genre, year, like, rate, poster } = movie;
   return (
-    <Link to="/" className="text-decoration-none text-reset mx-auto">
+    <Link to="/" className="text-decoration-none text-reset ">
       <li className="d-flex flex-column justify-content-between text-center">
         <div
           style={{

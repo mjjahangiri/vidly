@@ -8,8 +8,8 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Movie from "./Pages/Movie";
 import NotFound from "./Pages/NotFound";
-import Header from "./Components/Header";
 import axios from "axios";
+import Header from "./Components/Header";
 
 export default class App extends Component {
   state = {
@@ -29,6 +29,14 @@ export default class App extends Component {
     const { data: movies } = await axios.get("http://localhost:3001/Movies");
     this.setState({ movies });
   };
+  handleDelete = async (movie) => {
+    if (window.confirm("آیا برای حذف مطمپن هستید؟")) {
+      await axios.delete(`http://localhost:3001/Movies/${movie.id}`);
+      const { data: movies } = await axios.get("http://localhost:3001/Movies");
+      this.setState({ movies });
+    }
+    return;
+  };
   render() {
     const { movies, genres } = this.state;
     return (
@@ -47,6 +55,7 @@ export default class App extends Component {
               <Movies
                 movies={movies}
                 onLike={this.handleLike}
+                onDelete={this.handleDelete}
                 genres={genres}
               />
             }

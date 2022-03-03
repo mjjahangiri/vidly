@@ -13,8 +13,8 @@ export default class Home extends Component {
     const sortedByYear = _.orderBy(movies, "year", "desc");
     const sortedByRate = _.orderBy(movies, "rate", "desc");
     return (
-      <div className="pt-5 d-flex main align-items-center rtl justify-content-center w-100 mx-auto">
-        <div className="row contain w-75 d-flex align-items-center mb-5 justify-content-center bg-light">
+      <div className="pt-5 d-flex main align-items-center flex-column rtl justify-content-center w-100 mx-auto">
+        <div className="row contain w-75 d-flex align-items-center my-5 justify-content-center bg-light">
           <div id="welcom" className="col-3 py-5 px-3 d-flex flex-column">
             <h3 className="py-2 px-4 text-center m-0 my-3">سلام مهمان عزیز</h3>
             <h5 className="py-2 px-4 text-center m-0 my-3">

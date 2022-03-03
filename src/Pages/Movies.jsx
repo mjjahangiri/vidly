@@ -2,11 +2,11 @@ import React from "react";
 import Paginate from "../Components/Paginate";
 import Like from "../Components/Like";
 
-export default function Movies({ movies, genres, onLike }) {
+export default function Movies({ movies, genres, onLike, onDelete }) {
   return (
     <>
       <div className="pt-5 d-flex align-items-start rtl justify-content-center w-75 row mx-auto">
-        <div className="col-2 p-0 my-0--">
+        <div className="col-2 p-0 my-5">
           <ul className="list-group p-0 text-center">
             <li className="list-group-item GenreTitr">ژانرها</li>
             {genres.map((genre, index) => (
@@ -20,7 +20,7 @@ export default function Movies({ movies, genres, onLike }) {
             ))}
           </ul>
         </div>
-        <div className="col">
+        <div className="col my-5">
           <table className="table align-middle text-center">
             <thead>
               <tr>
@@ -45,7 +45,10 @@ export default function Movies({ movies, genres, onLike }) {
                     <Like like={movie.like} onClick={() => onLike(movie)} />
                   </td>
                   <td className="p-0 m-0">
-                    <i className="bi bi-x-lg text-danger icon"></i>
+                    <i
+                      className="bi bi-x-lg text-danger icon"
+                      onClick={() => onDelete(movie)}
+                    ></i>
                   </td>
                 </tr>
               ))}

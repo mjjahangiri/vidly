@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark rtl p-1">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark rtl p-1 d-flex w-100 position-absolute top-0">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Vidly
@@ -31,7 +31,7 @@ export default function Header() {
                 فیلم ها
               </NavLink>
             </li>
-            <li className="nav-item ">
+            <li className="nav-item d-none">
               <NavLink className="nav-link" to="/favorite">
                 موردعلاقه ها
               </NavLink>
