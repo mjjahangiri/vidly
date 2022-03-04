@@ -1,8 +1,14 @@
 import React from "react";
-import Paginate from "../Components/Paginate";
+import Pagination from "../Components/Pagination";
 import Like from "../Components/Like";
 
-export default function Movies({ movies, genres, onLike, onDelete }) {
+export default function Movies({
+  movies,
+  genres,
+  onLike,
+  onDelete,
+  totalPage,
+}) {
   return (
     <>
       <div className="pt-5 d-flex align-items-start rtl justify-content-center w-75 row mx-auto">
@@ -54,7 +60,7 @@ export default function Movies({ movies, genres, onLike, onDelete }) {
               ))}
             </tbody>
           </table>
-          <Paginate />
+          <Pagination totalPage={totalPage} />
         </div>
       </div>
     </>

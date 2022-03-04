@@ -10,15 +10,21 @@ import Movie from "./Pages/Movie";
 import NotFound from "./Pages/NotFound";
 import axios from "axios";
 import Header from "./Components/Header";
+import { paginate } from "./Components/Paginate";
 
 export default class App extends Component {
   state = {
     movies: [],
     genres: [],
+    currentPage: 1,
+    pageSize: 4,
+    // sortedMovie:
   };
   async componentDidMount() {
     const { data: movies } = await axios.get("http://localhost:3001/Movies");
     const { data: genres } = await axios.get("http://localhost:3001/Genres");
+
+    // const itemPerPage = Paginate(movies, 1, this.state.pageSize);
 
     this.setState({ movies, genres });
   }
@@ -38,7 +44,10 @@ export default class App extends Component {
     return;
   };
   render() {
-    const { movies, genres } = this.state;
+    const { movies, genres, currentPage, pageSize } = this.state;
+    const totalPage = Math.ceil(movies.length / 4);
+    const data = paginate(movies, currentPage, pageSize);
+
     return (
       <>
         <Header />
@@ -53,10 +62,12 @@ export default class App extends Component {
             exact
             element={
               <Movies
-                movies={movies}
+                movies={data}
                 onLike={this.handleLike}
                 onDelete={this.handleDelete}
                 genres={genres}
+                currentPage={currentPage}
+                totalPage={totalPage}
               />
             }
           />

@@ -41,6 +41,11 @@ code {
   border-radius: 5px;
   color: #c1c1c1 !important;
 }
+.item:hover {
+  background-color: darkslategray !important;
+  border-radius: 5px;
+  color: #c1c1c1 !important;
+}
 .nav-link:hover {
   color: #c1c1c1 !important;
 }
