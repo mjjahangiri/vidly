@@ -152,6 +152,12 @@ i:hover {
   padding: 0px;
   margin: 0px;
 }
+.sort {
+  font-size: small !important;
+}
+.sort:hover {
+  font-size: small !important;
+}
 .GenreTitr {
   background-color: darkslategrey !important;
   color: #c1c1c1 !important;

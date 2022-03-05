@@ -1,6 +1,8 @@
 import React from "react";
 import Pagination from "../Components/Pagination";
 import Like from "../Components/Like";
+import Sort from "../Components/Sort";
+import { Link } from "react-router-dom";
 
 export default function Movies({
   movies,
@@ -9,6 +11,10 @@ export default function Movies({
   onDelete,
   onClick,
   currentPage,
+  selectedGenre,
+  onGenreClick,
+  sorted,
+  onSortClick,
   totalPage,
 }) {
   return (
@@ -19,8 +25,11 @@ export default function Movies({
             {genres.map((genre, index) => (
               <li
                 key={index}
-                className="list-group-item nav-item"
+                className={`list-group-item nav-item ${
+                  selectedGenre === genre.ENname ? "active" : ""
+                }`}
                 style={{ cursor: "pointer" }}
+                onClick={() => onGenreClick(genre)}
               >
                 {genre.FAname}
               </li>
@@ -31,19 +40,57 @@ export default function Movies({
           <table className="table align-middle text-center">
             <thead>
               <tr>
-                <th scope="col">ردیف</th>
-                <th scope="col">اسم</th>
-                <th scope="col">ژانر</th>
-                <th scope="col">سال</th>
-                <th scope="col">امتیاز</th>
-                <th scope="col">مورد علاقه</th>
-                <th scope="col">حذف</th>
+                <th scope="col" className="col-4">
+                  <Link
+                    to
+                    className="text-reset text-decoration-none d-flex justify-content-center"
+                    onClick={() => onSortClick("title")}
+                  >
+                    اسم
+                    <Sort sorted={sorted} name="title" />
+                  </Link>
+                </th>
+                <th scope="col" className="col-2">
+                  <Link
+                    to
+                    className="text-reset text-decoration-none d-flex justify-content-center"
+                    onClick={() => onSortClick("genre")}
+                  >
+                    ژانر
+                    <Sort sorted={sorted} name="genre" />
+                  </Link>
+                </th>
+                <th scope="col" className="col-2">
+                  <Link
+                    to
+                    className="text-reset text-decoration-none d-flex justify-content-center"
+                    onClick={() => onSortClick("year")}
+                  >
+                    سال
+                    <Sort sorted={sorted} name="year" />
+                  </Link>
+                </th>
+                <th scope="col" className="col-2">
+                  <Link
+                    to
+                    className="text-reset text-decoration-none d-flex justify-content-center"
+                    onClick={() => onSortClick("rate")}
+                  >
+                    امتیاز
+                    <Sort sorted={sorted} name="rate" />
+                  </Link>
+                </th>
+                <th scope="col" className="col-1">
+                  مورد علاقه
+                </th>
+                <th scope="col" className="col-1">
+                  حذف
+                </th>
               </tr>
             </thead>
             <tbody>
               {movies.map((movie, index) => (
                 <tr key={index}>
-                  <td className="px-0 py-3 m-0">{movie.id}</td>
                   <td className="px-0 py-3 m-0">{movie.title}</td>
                   <td className="px-0 py-3 m-0">{movie.genre}</td>
                   <td className="px-0 py-3 m-0">{movie.year}</td>

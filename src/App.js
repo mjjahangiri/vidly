@@ -18,8 +18,10 @@ export default class App extends Component {
     genres: [],
     currentPage: 1,
     pageSize: 4,
-    // sortedMovie:
+    selectedGenre: "All Genres",
+    sorted: { path: "title", order: "asc" },
   };
+
   async componentDidMount() {
     const { data: movies } = await axios.get("http://localhost:3001/Movies");
     const { data: genres } = await axios.get("http://localhost:3001/Genres");
@@ -35,10 +37,25 @@ export default class App extends Component {
 
     this.setState({ movies, genres: allGenres });
   }
+
+  handleSort = (name) => {
+    const { path, order } = this.state.sorted;
+    const ord = order === "asc" ? "desc" : "asc";
+    if (path === name) this.setState({ sorted: { path: name, order: ord } });
+    else this.setState({ sorted: { path: name, order: "asc" } });
+  };
+
+  handleGenre = (genre) => {
+    const selectedGenre = genre.ENname;
+    const currentPage = 1;
+    this.setState({ selectedGenre, currentPage });
+  };
+
   handlePage = (page) => {
     const currentPage = page;
     this.setState({ currentPage });
   };
+
   handleLike = async (movie) => {
     const movieBody = { ...movie };
     movieBody.like = !movieBody.like;
@@ -46,6 +63,7 @@ export default class App extends Component {
     const { data: movies } = await axios.get("http://localhost:3001/Movies");
     this.setState({ movies });
   };
+
   handleDelete = async (movie) => {
     if (window.confirm("آیا برای حذف مطمپن هستید؟")) {
       await axios.delete(`http://localhost:3001/Movies/${movie.id}`);
@@ -54,10 +72,17 @@ export default class App extends Component {
     }
     return;
   };
+
   render() {
-    const { movies, genres, currentPage, pageSize } = this.state;
-    const totalPage = Math.ceil(movies.length / 4);
-    const data = paginate(movies, currentPage, pageSize);
+    const { movies, genres, currentPage, pageSize, selectedGenre, sorted } =
+      this.state;
+    const filtered =
+      selectedGenre === "All Genres"
+        ? movies
+        : movies.filter((movie) => movie.genre === selectedGenre);
+    const sortMovie = _.orderBy(filtered, sorted.path, sorted.order);
+    const totalPage = Math.ceil(sortMovie.length / 4);
+    const data = paginate(sortMovie, currentPage, pageSize);
 
     return (
       <>
@@ -80,6 +105,10 @@ export default class App extends Component {
                 currentPage={currentPage}
                 totalPage={totalPage}
                 onClick={this.handlePage}
+                selectedGenre={selectedGenre}
+                onGenreClick={this.handleGenre}
+                sorted={sorted}
+                onSortClick={this.handleSort}
               />
             }
           />
