@@ -24,10 +24,21 @@ export default class App extends Component {
     const { data: movies } = await axios.get("http://localhost:3001/Movies");
     const { data: genres } = await axios.get("http://localhost:3001/Genres");
 
-    // const itemPerPage = Paginate(movies, 1, this.state.pageSize);
+    const allGenres = [
+      {
+        id: "_",
+        ENname: "All Genres",
+        FAname: "همه ژانرها",
+      },
+      ...genres,
+    ];
 
-    this.setState({ movies, genres });
+    this.setState({ movies, genres: allGenres });
   }
+  handlePage = (page) => {
+    const currentPage = page;
+    this.setState({ currentPage });
+  };
   handleLike = async (movie) => {
     const movieBody = { ...movie };
     movieBody.like = !movieBody.like;
@@ -68,6 +79,7 @@ export default class App extends Component {
                 genres={genres}
                 currentPage={currentPage}
                 totalPage={totalPage}
+                onClick={this.handlePage}
               />
             }
           />

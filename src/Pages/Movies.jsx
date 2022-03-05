@@ -7,6 +7,8 @@ export default function Movies({
   genres,
   onLike,
   onDelete,
+  onClick,
+  currentPage,
   totalPage,
 }) {
   return (
@@ -14,7 +16,6 @@ export default function Movies({
       <div className="pt-5 d-flex align-items-start rtl justify-content-center w-75 row mx-auto">
         <div className="col-2 p-0 my-5">
           <ul className="list-group p-0 text-center">
-            <li className="list-group-item GenreTitr">ژانرها</li>
             {genres.map((genre, index) => (
               <li
                 key={index}
@@ -42,7 +43,7 @@ export default function Movies({
             <tbody>
               {movies.map((movie, index) => (
                 <tr key={index}>
-                  <td className="px-0 py-3 m-0">{index + 1}</td>
+                  <td className="px-0 py-3 m-0">{movie.id}</td>
                   <td className="px-0 py-3 m-0">{movie.title}</td>
                   <td className="px-0 py-3 m-0">{movie.genre}</td>
                   <td className="px-0 py-3 m-0">{movie.year}</td>
@@ -60,7 +61,11 @@ export default function Movies({
               ))}
             </tbody>
           </table>
-          <Pagination totalPage={totalPage} />
+          <Pagination
+            totalPage={totalPage}
+            onClick={onClick}
+            currentPage={currentPage}
+          />
         </div>
       </div>
     </>
