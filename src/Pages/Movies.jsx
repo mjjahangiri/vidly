@@ -1,8 +1,8 @@
-import React from "react";
-import Pagination from "../Components/Pagination";
-import Like from "../Components/Like";
-import Sort from "../Components/Sort";
-import { Link } from "react-router-dom";
+import React from 'react';
+import Pagination from '../Components/Pagination';
+import Like from '../Components/Like';
+import Sort from '../Components/Sort';
+import { Link } from 'react-router-dom';
 
 export default function Movies({
   movies,
@@ -26,9 +26,9 @@ export default function Movies({
               <li
                 key={index}
                 className={`list-group-item nav-item ${
-                  selectedGenre === genre.ENname ? "active" : ""
+                  selectedGenre === genre.ENname ? 'active' : ''
                 }`}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
                 onClick={() => onGenreClick(genre)}
               >
                 {genre.FAname}
@@ -40,50 +40,50 @@ export default function Movies({
           <table className="table align-middle text-center">
             <thead>
               <tr>
-                <th scope="col" className="col-4">
+                <th scope="col" className="col-4 px-0">
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick("title")}
+                    onClick={() => onSortClick('title')}
                   >
                     اسم
                     <Sort sorted={sorted} name="title" />
                   </Link>
                 </th>
-                <th scope="col" className="col-2">
+                <th scope="col" className="col-2 px-0">
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick("genre")}
+                    onClick={() => onSortClick('genre')}
                   >
                     ژانر
                     <Sort sorted={sorted} name="genre" />
                   </Link>
                 </th>
-                <th scope="col" className="col-2">
+                <th scope="col" className="col-2 px-0">
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick("year")}
+                    onClick={() => onSortClick('year')}
                   >
                     سال
                     <Sort sorted={sorted} name="year" />
                   </Link>
                 </th>
-                <th scope="col" className="col-2">
+                <th scope="col" className="col-2 px-0">
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick("rate")}
+                    onClick={() => onSortClick('rate')}
                   >
                     امتیاز
                     <Sort sorted={sorted} name="rate" />
                   </Link>
                 </th>
-                <th scope="col" className="col-1">
+                <th scope="col" className="col-1 px-0">
                   مورد علاقه
                 </th>
-                <th scope="col" className="col-1">
+                <th scope="col" className="col-1 px-0">
                   حذف
                 </th>
               </tr>
