@@ -20,6 +20,7 @@ export default class App extends Component {
     pageSize: 4,
     selectedGenre: "All Genres",
     sorted: { path: "title", order: "asc" },
+    user: [],
   };
 
   async componentDidMount() {
@@ -37,6 +38,11 @@ export default class App extends Component {
 
     this.setState({ movies, genres: allGenres });
   }
+
+  handleLogin = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+  };
 
   handleSort = (name) => {
     const { path, order } = this.state.sorted;
@@ -113,7 +119,11 @@ export default class App extends Component {
             }
           />
           <Route path="/favorite" exact element={<Favorite />} />
-          <Route path="/login" exact element={<Login />} />
+          <Route
+            path="/login"
+            exact
+            element={<Login onSubmit={this.handleLogin} />}
+          />
           <Route path="/register" exact element={<Register />} />
           <Route path="/movie/:id" exact element={<Movie />} />
           <Route path="*" exact element={<NotFound />} />
