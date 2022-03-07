@@ -1,16 +1,20 @@
 import React from "react";
 import Form from "../Components/Form";
-import Joi from "joi";
+import Joi from "joi-browser";
 
 export default class Login extends Form {
   state = {
-    data: {},
+    data: { username: "", password: "" },
     errors: {},
   };
 
   schema = {
     username: Joi.string().required().label("نام کاربری"),
     password: Joi.string().required().label("رمز عبور"),
+  };
+
+  doSubmit = () => {
+    console.log("Submitted in Login Page");
   };
 
   render() {

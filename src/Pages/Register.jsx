@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "../Components/Form";
-import Joi from "joi";
+import Joi from "joi-browser";
 export default class Register extends Form {
   state = {
     data: { Fname: "", Lname: "", username: "", email: "", password: "" },
@@ -11,9 +11,12 @@ export default class Register extends Form {
     Fname: Joi.string().required().label("نام"),
     Lname: Joi.string().required().label("نام خانوادگی"),
     username: Joi.string().required().label("نام کاربری"),
-    email: Joi.string().required().label("ایمیل"),
+    email: Joi.string().required().email().label("ایمیل"),
     password: Joi.string().min(6).required().label("رمز عبور"),
-    rePassword: Joi.ref("password"),
+  };
+
+  doSubmit = () => {
+    console.log("Submitted in Register Page");
   };
 
   render() {
@@ -35,7 +38,6 @@ export default class Register extends Form {
                 {this.renderInput("username", "نام کاربری", "text")}
                 {this.renderInput("email", "ایمیل", "email")}
                 {this.renderInput("password", "رمز عبور", "password")}
-                {this.renderInput("rePassword", "تکرار رمز عبور", "password")}
                 {this.renderButton("ثبت نام")}
               </form>
             </div>
