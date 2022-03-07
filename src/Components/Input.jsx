@@ -1,6 +1,13 @@
-import React from 'react';
+import React from "react";
 
-export default function Input({ name, label, error, type, onChange }) {
+export default function Input({
+  name,
+  label,
+  error,
+  type,
+  autoFocus,
+  onChange,
+}) {
   return (
     <div className="rtl mb-3">
       <label htmlFor="" className="form-label">
@@ -10,6 +17,7 @@ export default function Input({ name, label, error, type, onChange }) {
         name={name}
         onChange={onChange}
         type={type}
+        autoFocus={autoFocus}
         className="form-control"
       />
       {error && (
