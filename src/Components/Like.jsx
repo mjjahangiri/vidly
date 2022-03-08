@@ -5,7 +5,10 @@ export default function Like({ like, onClick }) {
 
   return (
     <>
-      <i className={like ? classes + `-fill` : classes} onClick={onClick}></i>
+      <i
+        className={like ? classes + `-fill text-danger` : classes}
+        onClick={onClick}
+      ></i>
     </>
   );
 }
