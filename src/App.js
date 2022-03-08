@@ -167,7 +167,14 @@ export default class App extends Component {
           <Route
             path="/favorite"
             exact
-            element={<Favorite movies={favoriteMovie} />}
+            element={
+              <Favorite
+                movies={favoriteMovie}
+                user={currentUser}
+                onLike={this.handleLike}
+                onDelete={this.handleDelete}
+              />
+            }
           />
           <Route
             path="/login"

@@ -52,7 +52,7 @@ export default class Home extends Component {
               <RateMovies movies={sortedByRate} onClick={onLike} />
             </div>
             <Genres />
-            <Dashboard />
+            {user && <Dashboard />}
           </div>
         </div>
       </div>
