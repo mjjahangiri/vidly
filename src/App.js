@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 import * as _ from "lodash";
+import jwtDecode from "jwt-decode";
+import axios from "axios";
 import Home from "./Pages/Home";
 import Movies from "./Pages/Movies";
 import Favorite from "./Pages/Favorite";
@@ -8,10 +10,28 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Movie from "./Pages/Movie";
 import NotFound from "./Pages/NotFound";
-import axios from "axios";
 import Header from "./Components/Header";
 import { paginate } from "./Components/Paginate";
+import Logout from "./Components/Logout";
 
+export async function authHandle(url, state) {
+  try {
+    const response = await axios.post(url, state.data);
+    const jwt = response.data.accessToken;
+    localStorage.setItem("token", jwt);
+    window.location = "/";
+  } catch (ex) {
+    if (ex.response && ex.response.status === 400) {
+      const errors = { ...state.errors };
+      if (ex.response.data === "Incorrect password")
+        errors.password = ex.response.data;
+      else {
+        errors.email = ex.response.data;
+      }
+      return errors;
+    }
+  }
+}
 export default class App extends Component {
   state = {
     movies: [],
@@ -21,6 +41,7 @@ export default class App extends Component {
     selectedGenre: "All Genres",
     sorted: { path: "title", order: "asc" },
     user: [],
+    currentUser: "",
   };
 
   async componentDidMount() {
@@ -37,6 +58,7 @@ export default class App extends Component {
     ];
 
     this.setState({ movies, genres: allGenres });
+    this.userHandle();
   }
 
   handleLogin = (e) => {
@@ -79,9 +101,25 @@ export default class App extends Component {
     return;
   };
 
+  userHandle = async () => {
+    const jwt = localStorage.getItem("token");
+    if (!jwt) return;
+    const user = jwtDecode(jwt);
+    const { data } = await axios.get(`http://localhost:3001/users/${user.sub}`);
+    const currentUser = data.Fname;
+    this.setState({ currentUser });
+  };
+
   render() {
-    const { movies, genres, currentPage, pageSize, selectedGenre, sorted } =
-      this.state;
+    const {
+      movies,
+      genres,
+      currentUser,
+      currentPage,
+      pageSize,
+      selectedGenre,
+      sorted,
+    } = this.state;
     const filtered =
       selectedGenre === "All Genres"
         ? movies
@@ -89,15 +127,22 @@ export default class App extends Component {
     const sortMovie = _.orderBy(filtered, sorted.path, sorted.order);
     const totalPage = Math.ceil(sortMovie.length / 4);
     const data = paginate(sortMovie, currentPage, pageSize);
+    const favoriteMovie = movies.filter((movie) => movie.like === true);
 
     return (
       <>
-        <Header />
+        <Header user={currentUser} />
         <Routes>
           <Route
             path="/"
             exact
-            element={<Home movies={movies} onLike={this.handleLike} />}
+            element={
+              <Home
+                movies={movies}
+                user={currentUser}
+                onLike={this.handleLike}
+              />
+            }
           />
           <Route
             path="/movies"
@@ -113,18 +158,24 @@ export default class App extends Component {
                 onClick={this.handlePage}
                 selectedGenre={selectedGenre}
                 onGenreClick={this.handleGenre}
+                user={currentUser}
                 sorted={sorted}
                 onSortClick={this.handleSort}
               />
             }
           />
-          <Route path="/favorite" exact element={<Favorite />} />
+          <Route
+            path="/favorite"
+            exact
+            element={<Favorite movies={favoriteMovie} />}
+          />
           <Route
             path="/login"
             exact
             element={<Login onSubmit={this.handleLogin} />}
           />
           <Route path="/register" exact element={<Register />} />
+          <Route path="/logout" exact element={<Logout />} />
           <Route path="/movie/:id" exact element={<Movie />} />
           <Route path="*" exact element={<NotFound />} />
         </Routes>

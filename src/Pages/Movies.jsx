@@ -1,8 +1,8 @@
-import React from 'react';
-import Pagination from '../Components/Pagination';
-import Like from '../Components/Like';
-import Sort from '../Components/Sort';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Pagination from "../Components/Pagination";
+import Like from "../Components/Like";
+import Sort from "../Components/Sort";
+import { Link } from "react-router-dom";
 
 export default function Movies({
   movies,
@@ -16,6 +16,7 @@ export default function Movies({
   sorted,
   onSortClick,
   totalPage,
+  user,
 }) {
   return (
     <>
@@ -26,9 +27,9 @@ export default function Movies({
               <li
                 key={index}
                 className={`list-group-item nav-item ${
-                  selectedGenre === genre.ENname ? 'active' : ''
+                  selectedGenre === genre.ENname ? "active" : ""
                 }`}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
                 onClick={() => onGenreClick(genre)}
               >
                 {genre.FAname}
@@ -44,7 +45,7 @@ export default function Movies({
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick('title')}
+                    onClick={() => onSortClick("title")}
                   >
                     اسم
                     <Sort sorted={sorted} name="title" />
@@ -54,7 +55,7 @@ export default function Movies({
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick('genre')}
+                    onClick={() => onSortClick("genre")}
                   >
                     ژانر
                     <Sort sorted={sorted} name="genre" />
@@ -64,7 +65,7 @@ export default function Movies({
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick('year')}
+                    onClick={() => onSortClick("year")}
                   >
                     سال
                     <Sort sorted={sorted} name="year" />
@@ -74,7 +75,7 @@ export default function Movies({
                   <Link
                     to
                     className="text-reset text-decoration-none d-flex justify-content-center"
-                    onClick={() => onSortClick('rate')}
+                    onClick={() => onSortClick("rate")}
                   >
                     امتیاز
                     <Sort sorted={sorted} name="rate" />
@@ -83,9 +84,11 @@ export default function Movies({
                 <th scope="col" className="col-1 px-0">
                   مورد علاقه
                 </th>
-                <th scope="col" className="col-1 px-0">
-                  حذف
-                </th>
+                {user && (
+                  <th scope="col" className="col-1 px-0">
+                    حذف
+                  </th>
+                )}
               </tr>
             </thead>
             <tbody>
@@ -98,12 +101,14 @@ export default function Movies({
                   <td className="p-0 m-0">
                     <Like like={movie.like} onClick={() => onLike(movie)} />
                   </td>
-                  <td className="p-0 m-0">
-                    <i
-                      className="bi bi-x-lg text-danger icon"
-                      onClick={() => onDelete(movie)}
-                    ></i>
-                  </td>
+                  {user && (
+                    <td className="p-0 m-0">
+                      <i
+                        className="bi bi-x-lg text-danger icon"
+                        onClick={() => onDelete(movie)}
+                      ></i>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>

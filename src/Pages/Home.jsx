@@ -9,29 +9,33 @@ import Genres from "../Components/Genres";
 
 export default class Home extends Component {
   render() {
-    const { movies, onLike } = this.props;
+    const { movies, onLike, user } = this.props;
     const sortedByYear = _.orderBy(movies, "year", "desc");
     const sortedByRate = _.orderBy(movies, "rate", "desc");
     return (
       <div className="pt-5 d-flex main align-items-center flex-column rtl justify-content-center w-100 mx-auto">
         <div className="row contain w-75 d-flex align-items-center my-5 justify-content-center bg-light">
           <div id="welcom" className="col-3 py-5 px-3 d-flex flex-column">
-            <h3 className="py-2 px-4 text-center m-0 my-3">سلام مهمان عزیز</h3>
+            <h3 className="py-2 px-4 text-center m-0 my-3">
+              سلام {user === "" ? "مهمان" : user} عزیز
+            </h3>
             <h5 className="py-2 px-4 text-center m-0 my-3">
               به Vidly خوش اومدی
             </h5>
-            <div className="my-3 mx-auto d-flex flex-column align-items-center gap-2">
-              <h5 className="text-center mb-3">لطفا وارد شوید</h5>
-              <Link to="/login">
-                <Button title="ورود" type="button" />
-              </Link>
-              <p className="text-center m-0 fw-lighter small">
-                هنوز عضو نشدید؟
-              </p>
-              <Link to="/register">
-                <Button title="ثبت نام" type="button" />
-              </Link>
-            </div>
+            {!user && (
+              <div className="my-3 mx-auto d-flex flex-column align-items-center gap-2">
+                <h5 className="text-center mb-3">لطفا وارد شوید</h5>
+                <Link to="/login">
+                  <Button title="ورود" type="button" />
+                </Link>
+                <p className="text-center m-0 fw-lighter small">
+                  هنوز عضو نشدید؟
+                </p>
+                <Link to="/register">
+                  <Button title="ثبت نام" type="button" />
+                </Link>
+              </div>
+            )}
           </div>
           <div id="content" className="col-9  px-0 py-4">
             <div className="p-3 d-flex flex-row align-items-center justify-content-between">

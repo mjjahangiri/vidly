@@ -1,20 +1,22 @@
 import React from "react";
 import Form from "../Components/Form";
 import Joi from "joi-browser";
+import { authHandle } from "../App";
 
 export default class Login extends Form {
   state = {
-    data: { username: "", password: "" },
+    data: { email: "", password: "" },
     errors: {},
   };
 
   schema = {
-    username: Joi.string().required().label("نام کاربری"),
+    email: Joi.string().required().email().label("نام کاربری"),
     password: Joi.string().required().label("رمز عبور"),
   };
 
-  doSubmit = () => {
-    console.log("Submitted in Login Page");
+  doSubmit = async () => {
+    const errors = await authHandle("http://localhost:3001/login", this.state);
+    this.setState({ errors });
   };
 
   render() {
@@ -25,7 +27,7 @@ export default class Login extends Form {
             <div className="row contain bg-light px-5 py-4 w-100 d-flex align-items-center justify-content-center">
               <form className="px-5" onSubmit={this.onSubmit}>
                 <h3 className="text-center m-0 mb-4">ورود</h3>
-                {this.renderInput("username", "نام کاربری", "text", true)}
+                {this.renderInput("email", "نام کاربری", "text", true)}
                 {this.renderInput("password", "رمز عبور", "password")}
                 {this.renderButton("ورود")}
               </form>
