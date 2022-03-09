@@ -145,6 +145,8 @@ export default class App extends Component {
                 movies={movies}
                 user={currentUser}
                 onLike={this.handleLike}
+                onClick={this.handleGenre}
+                genres={genres}
               />
             }
           />

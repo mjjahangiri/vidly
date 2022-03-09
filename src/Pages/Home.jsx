@@ -9,15 +9,15 @@ import Genres from "../Components/Genres";
 
 export default class Home extends Component {
   render() {
-    const { movies, onLike, user } = this.props;
+    const { movies, onLike, user, onClick, genres } = this.props;
     const sortedByYear = _.orderBy(movies, "year", "desc");
     const sortedByRate = _.orderBy(movies, "rate", "desc");
     return (
       <div className="pt-5 d-flex main align-items-center flex-column rtl justify-content-center w-100 mx-auto">
         <div className="row contain w-75 d-flex align-items-center my-5 justify-content-center bg-light">
-          <div id="welcom" className="col-3 py-5 px-3 d-flex flex-column">
+          <div id="welcome" className="col-3 py-5 px-3 d-flex flex-column">
             <h3 className="py-2 px-4 text-center m-0 my-3">
-              سلام {user.Fname === "" ? "مهمان" : user.Fname} عزیز
+              سلام {!user.Fname ? "مهمان" : user.Fname} عزیز
             </h3>
             <h5 className="py-2 px-4 text-center m-0 my-3">
               به Vidly خوش اومدی
@@ -51,7 +51,7 @@ export default class Home extends Component {
               </h6>
               <RateMovies movies={sortedByRate} onClick={onLike} />
             </div>
-            <Genres />
+            <Genres onClick={onClick} genres={genres} />
             {user && <Dashboard />}
           </div>
         </div>

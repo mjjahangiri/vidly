@@ -21,6 +21,9 @@ export default function Profile({ user }) {
             {user.Fname} {user.Lname}
           </h4>
           <h5 className="mt-3 mb-0">{user.email}</h5>
+          <Link to="/changepassword" className="mt-4 mb-0">
+            <Button title="تغییر رمز عبور" />
+          </Link>
           <Link to="/" className="mt-4 mb-0">
             <Button title="بازگشت" />
           </Link>
