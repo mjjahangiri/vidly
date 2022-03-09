@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function GenreSection({ link, genre, onClick, index }) {
+export default function GenreSection({ link, genre, onClick }) {
   return (
     <Link
       to={link}
-      key={index}
       onClick={() => onClick(genre)}
       className="text-decoration-none text-reset genreLink mx-auto"
     >

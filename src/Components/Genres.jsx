@@ -15,7 +15,7 @@ export default function Genres({ onClick, genres }) {
               link="/movies"
               onClick={onClick}
               genre={genre}
-              index={i}
+              key={i}
             />
           ))}
         </ul>
