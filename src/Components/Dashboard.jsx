@@ -9,17 +9,17 @@ export default function Dashboard() {
         <h6 className="py-2 px-3 m-0 d-inline-flex">داشبورد</h6>
         <ul className="d-flex flex-row align-items-start mb-0 mt-2 w-100 justify-content-center px-5">
           <DashboardSection
-            link="/"
+            link="/profile"
             title="اطلاعات کاربری"
             icon={<i className="bi bi-person-circle fs-4"></i>}
           />
           <DashboardSection
-            link="/"
+            link="/changepassword"
             title="تغییر رمز"
             icon={<i className="bi bi-fingerprint fs-4"></i>}
           />
           <DashboardSection
-            link="/"
+            link="/favorite"
             title="مورد علاقه ها"
             icon={<i className="bi bi-heart-fill fs-4"></i>}
           />

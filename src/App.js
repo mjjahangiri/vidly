@@ -41,6 +41,7 @@ export default class App extends Component {
     selectedGenre: "All Genres",
     sorted: { path: "title", order: "asc" },
     user: [],
+    movie: {},
     currentUser: "",
   };
 
@@ -101,6 +102,10 @@ export default class App extends Component {
     return;
   };
 
+  movieHandle = async (id) => {
+    const { data } = await axios.get(`http://localhost:3001/movies/${id}`);
+  };
+
   userHandle = async () => {
     const jwt = localStorage.getItem("token");
     if (!jwt) return;
@@ -116,6 +121,7 @@ export default class App extends Component {
       genres,
       currentUser,
       currentPage,
+      movie,
       pageSize,
       selectedGenre,
       sorted,
@@ -128,7 +134,6 @@ export default class App extends Component {
     const totalPage = Math.ceil(sortMovie.length / 4);
     const data = paginate(sortMovie, currentPage, pageSize);
     const favoriteMovie = movies.filter((movie) => movie.like === true);
-
     return (
       <>
         <Header user={currentUser} />
@@ -183,7 +188,11 @@ export default class App extends Component {
           />
           <Route path="/register" exact element={<Register />} />
           <Route path="/logout" exact element={<Logout />} />
-          <Route path="/movie/:id" exact element={<Movie />} />
+          <Route
+            path="/movie/:id"
+            exact
+            element={<Movie onLike={this.handleLike} />}
+          />
           <Route path="*" exact element={<NotFound />} />
         </Routes>
       </>

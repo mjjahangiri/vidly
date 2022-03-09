@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Like from "./Like";
 
 export default function MovieSection({ movie, onClick }) {
-  const { title, genre, year, like, rate, poster } = movie;
+  const { title, genre, year, like, rate, poster, id } = movie;
   return (
-    <Link to="/" className="text-decoration-none text-reset ">
+    <Link to={`/movie/${id}`} className="text-decoration-none text-reset ">
       <li className="d-flex flex-column justify-content-between text-center">
         <div
           style={{
@@ -19,9 +19,7 @@ export default function MovieSection({ movie, onClick }) {
           <div className="movieContent">
             <div className="movieOverlay"></div>
             <div className="d-flex position-absolute top-0 pt-4 justify-content-around w-100 ">
-              <span className="d-flex">
-                <Like like={like} onClick={() => onClick(movie)} />
-              </span>
+              <span className="d-flex">امتیاز</span>
               <span className="d-flex">{rate}</span>
             </div>
             <div className="d-flex position-absolute bottom-0 pb-3 flex-column justify-content-around w-100 ">

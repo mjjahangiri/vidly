@@ -1,9 +1,8 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import MovieDetail from "../Components/MovieDetail";
 
-export default function Movie() {
-  return (
-    <>
-      <h1 className="my-5 pt-5">Hello From Single Movie Page</h1>
-    </>
-  );
+export default function Movie({ onLike }) {
+  const { id } = useParams();
+  return <MovieDetail id={id} onLike={onLike} />;
 }
