@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import * as _ from "lodash";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
@@ -9,6 +9,7 @@ import Favorite from "./Pages/Favorite";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Movie from "./Pages/Movie";
+import Profile from "./Pages/Profile";
 import NotFound from "./Pages/NotFound";
 import Header from "./Components/Header";
 import { paginate } from "./Components/Paginate";
@@ -111,8 +112,7 @@ export default class App extends Component {
     if (!jwt) return;
     const user = jwtDecode(jwt);
     const { data } = await axios.get(`http://localhost:3001/users/${user.sub}`);
-    const currentUser = data.Fname;
-    this.setState({ currentUser });
+    this.setState({ currentUser: data });
   };
 
   render() {
@@ -121,7 +121,6 @@ export default class App extends Component {
       genres,
       currentUser,
       currentPage,
-      movie,
       pageSize,
       selectedGenre,
       sorted,
@@ -188,6 +187,28 @@ export default class App extends Component {
           />
           <Route path="/register" exact element={<Register />} />
           <Route path="/logout" exact element={<Logout />} />
+          <Route
+            path="/profile"
+            exact
+            element={
+              currentUser !== "" ? (
+                <Profile user={currentUser} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+          <Route
+            path="/changepassword"
+            exact
+            element={
+              currentUser !== "" ? (
+                <Profile user={currentUser} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
           <Route
             path="/movie/:id"
             exact

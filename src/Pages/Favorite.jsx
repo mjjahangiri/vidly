@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Like from "../Components/Like";
 
 export default function Favorite({ movies, user, onLike, onDelete }) {
-  console.log(movies.length);
   return (
     <>
       <div className="pt-5 my-5 d-flex align-items-start rtl justify-content-center w-75 row mx-auto">

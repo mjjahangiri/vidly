@@ -17,7 +17,7 @@ export default class Home extends Component {
         <div className="row contain w-75 d-flex align-items-center my-5 justify-content-center bg-light">
           <div id="welcom" className="col-3 py-5 px-3 d-flex flex-column">
             <h3 className="py-2 px-4 text-center m-0 my-3">
-              سلام {user === "" ? "مهمان" : user} عزیز
+              سلام {user.Fname === "" ? "مهمان" : user.Fname} عزیز
             </h3>
             <h5 className="py-2 px-4 text-center m-0 my-3">
               به Vidly خوش اومدی

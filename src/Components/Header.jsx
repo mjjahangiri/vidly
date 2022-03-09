@@ -58,8 +58,8 @@ export default function Header({ user }) {
           {user && (
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
               <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/login">
-                  {user} عزیز
+                <NavLink className="nav-link" aria-current="page" to="/profile">
+                  {user.Fname} عزیز
                 </NavLink>
               </li>
 
