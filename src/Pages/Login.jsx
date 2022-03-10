@@ -16,7 +16,7 @@ export default class Login extends Form {
 
   doSubmit = async () => {
     const errors = await authHandle(
-      "https://my-json-server.typicode.com/mjjahangiri/json-database/login",
+      "https://622a732d14ccb950d21cb2e4.mockapi.io/login",
       this.state
     );
     this.setState({ errors });

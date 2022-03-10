@@ -10,7 +10,7 @@ export default class MovieDetail extends Component {
   async componentDidMount() {
     const { id } = this.props;
     const { data: movie } = await axios.get(
-      `https://my-json-server.typicode.com/mjjahangiri/json-database/movies/${id}`
+      `https://622a732d14ccb950d21cb2e4.mockapi.io/movies/${id}`
     );
     this.setState({ movie });
   }
