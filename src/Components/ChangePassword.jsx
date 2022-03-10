@@ -1,28 +1,82 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
+import Button from "./Button";
+import Input from "./Input";
+import axios from "axios";
+import bcryptjs from "bcryptjs";
 export default class ChangePassword extends Component {
+  state = {
+    oldPass: {},
+    newPass: {},
+    reNewPass: {},
+  };
+
+  passHandle = async (e) => {
+    e.preventDefault();
+    const { user } = this.props;
+    const { oldPass, newPass, reNewPass } = this.state;
+    if (!bcryptjs.compareSync(oldPass, user.password))
+      return alert("پسورد قبل اشتباه است");
+    else if (newPass !== reNewPass)
+      return alert("پسورد جدید و تکرارش یکسان نیستند");
+
+    try {
+      await axios.patch(`http://localhost:3001/users/${user.id}`, {
+        password: newPass,
+      });
+      alert("پسورد شما با موفقیت عوض شد");
+      window.location = "/";
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  oldPassHandle = ({ target }) => {
+    const { value } = target;
+    this.setState({ oldPass: value });
+  };
+  newPassHandle = ({ target }) => {
+    const { value } = target;
+    this.setState({ newPass: value });
+  };
+  reNewPassHandle = ({ target }) => {
+    const { value } = target;
+    this.setState({ reNewPass: value });
+  };
+
   render() {
+    const { user } = this.props;
     return (
       <div className="pt-5 d-flex main align-items-center flex-column rtl justify-content-center w-100 mx-auto">
         <div className="row contain w-50 d-flex align-items-center my-5 justify-content-center bg-light">
           <div className="w-50 py-3 my-5 mx-auto flex-column d-flex align-items-center justify-content-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="260"
-              height="260"
-              fill="currentColor"
-              className="bi bi-person-fill border border-1 border-dark rounded-circle"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-            </svg>
-            <h4 className="mt-5 mb-0">
-              {user.Fname} {user.Lname}
-            </h4>
-            <h5 className="mt-3 mb-0">{user.email}</h5>
-            <Link to="/" className="mt-4 mb-0">
-              <Button title="بازگشت" />
-            </Link>
+            <form className="w-75" onSubmit={this.passHandle}>
+              <Input
+                name="oldPass"
+                label="پسورد قبل"
+                autoFocus={true}
+                type="text"
+                onChange={this.oldPassHandle}
+              />
+              <Input
+                name="newPass"
+                label="پسورد جدید"
+                type="password"
+                onChange={this.newPassHandle}
+              />
+              <Input
+                name="reNewPass"
+                label="تکرار پسورد جدید"
+                type="password"
+                onChange={this.reNewPassHandle}
+              />
+              <div className="d-flex align-items-center justify-content-between mt-5">
+                <Button title="ثبت" type="submit" />
+                <Link to="/">
+                  <Button title="انصراف" />
+                </Link>
+              </div>
+            </form>
           </div>
         </div>
       </div>

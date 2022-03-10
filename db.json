@@ -252,31 +252,10 @@
   "users": [
     {
       "email": "mj.jahangiri.6@gmail.com",
-      "password": "$2a$10$Jv5XoyqHewcxsw5Ktblm5OvCzTCClHlH5Am.h55w8FnsGYI97BXhe",
+      "password": "$2a$10$mIT2ihj5GI6lZAT.VhwAKe126.A5oZHny/k7TDzBfpDdq6g9B2JFC",
       "Fname": "محمد جواد",
       "Lname": "جهانگیری",
       "id": 1
-    },
-    {
-      "email": "a.mohamadi@gmail.com",
-      "password": "$2a$10$m5UBYlxjDwJtwya7oyayWOt.K.BHyWEscfyJvJVKGWBpcIzM9fCye",
-      "Fname": "عارفه",
-      "Lname": "محمدی",
-      "id": 2
-    },
-    {
-      "email": "sa@domain.com",
-      "password": "$2a$10$RDt3p.szUhaQm8CCLh5heuFTzV9fRdegxhKGiYQnrtUUvc/G.VXFO",
-      "Fname": "asd",
-      "Lname": "محمدی",
-      "id": 3
-    },
-    {
-      "email": "s@domain.com",
-      "password": "$2a$10$8V5xQ3svE9Rs8Eh9DtGzNOc/RIbGkVZVJOVn6muO9DACLbUYLMGuO",
-      "Fname": "javad",
-      "Lname": "jahangiri",
-      "id": 4
     }
   ]
 }

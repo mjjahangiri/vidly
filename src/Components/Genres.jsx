@@ -2,7 +2,6 @@ import React from "react";
 import GenreSection from "../Components/GenreSection";
 
 export default function Genres({ onClick, genres }) {
-  console.log(genres);
   const filteredGenres = genres.filter((genre) => genre.id !== "_");
   return (
     <>

@@ -14,6 +14,7 @@ import NotFound from "./Pages/NotFound";
 import Header from "./Components/Header";
 import { paginate } from "./Components/Paginate";
 import Logout from "./Components/Logout";
+import ChangePassword from "./Components/ChangePassword";
 
 export async function authHandle(url, state) {
   try {
@@ -205,7 +206,7 @@ export default class App extends Component {
             exact
             element={
               currentUser !== "" ? (
-                <Profile user={currentUser} />
+                <ChangePassword user={currentUser} />
               ) : (
                 <Navigate to="/login" />
               )
