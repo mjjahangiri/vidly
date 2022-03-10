@@ -37,7 +37,11 @@ export default function Favorite({ movies, user, onLike, onDelete }) {
             <tbody>
               {movies.map((movie, index) => (
                 <tr key={index}>
-                  <td className="px-0 py-3 m-0">{movie.title}</td>
+                  <td className="px-0 py-3 m-0">
+                    <Link to={`/movie/${movie.id}`} className="text-reset">
+                      {movie.title}
+                    </Link>
+                  </td>
                   <td className="px-0 py-3 m-0">{movie.genre}</td>
                   <td className="px-0 py-3 m-0">{movie.year}</td>
                   <td className="px-0 py-3 m-0">{movie.rate}</td>

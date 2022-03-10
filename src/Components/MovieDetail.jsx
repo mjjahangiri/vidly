@@ -20,9 +20,12 @@ export default class MovieDetail extends Component {
     const { onLike } = this.props;
     return (
       <div className="pt-5 my-5 d-flex flex-column align-items-stretch rtl justify-content-center w-75 row mx-auto">
-        <div className="d-flex flex-row align-items-stretch justify-content-center">
-          <img src={poster} alt="" />
-          <div className="px-5 bg-light align-items-center d-flex flex-column">
+        <div
+          className="d-flex py-5 contain  flex-row align-items-center bg-light justify-content-evenly"
+          id="movieMain"
+        >
+          <img src={poster} height="700" alt="" />
+          <div className="px-5 d-flex flex-column ">
             <table className="table table-borderless">
               <tbody>
                 <tr>
