@@ -18,7 +18,7 @@ export default class Register extends Form {
 
   doSubmit = async () => {
     authHandle(
-      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/register",
+      "https://my-json-server.typicode.com/mjjahangiri/json-database/register",
       this.state
     );
   };

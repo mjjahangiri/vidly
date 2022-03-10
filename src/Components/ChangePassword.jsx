@@ -22,7 +22,7 @@ export default class ChangePassword extends Component {
 
     try {
       await axios.patch(
-        `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/users/${user.id}`,
+        `https://my-json-server.typicode.com/mjjahangiri/json-database/users/${user.id}`,
         {
           password: newPass,
         }

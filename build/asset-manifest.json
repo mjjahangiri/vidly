@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.32da3ee4.css",
-    "main.js": "/static/js/main.c0abb541.js",
-    "static/js/787.fba8e351.chunk.js": "/static/js/787.fba8e351.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
-    "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.a13b815539b49de48d23.woff2",
-    "static/media/Vazir.ttf": "/static/media/Vazir.f4bbb37ad9da25275fb1.ttf",
-    "static/media/iransans.woff2": "/static/media/iransans.ca92bd17e3211d6b29b9.woff2",
-    "index.html": "/index.html",
-    "main.32da3ee4.css.map": "/static/css/main.32da3ee4.css.map",
-    "main.c0abb541.js.map": "/static/js/main.c0abb541.js.map",
-    "787.fba8e351.chunk.js.map": "/static/js/787.fba8e351.chunk.js.map"
+    "main.css": "/vidly/static/css/main.8f8b8ba6.css",
+    "main.js": "/vidly/static/js/main.2f52c634.js",
+    "static/js/787.fba8e351.chunk.js": "/vidly/static/js/787.fba8e351.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/vidly/static/media/bootstrap-icons.c1d7432ee75fa194e499.woff",
+    "static/media/bootstrap-icons.woff2?": "/vidly/static/media/bootstrap-icons.a13b815539b49de48d23.woff2",
+    "static/media/Vazir.ttf": "/vidly/static/media/Vazir.f4bbb37ad9da25275fb1.ttf",
+    "static/media/iransans.woff2": "/vidly/static/media/iransans.ca92bd17e3211d6b29b9.woff2",
+    "index.html": "/vidly/index.html",
+    "main.8f8b8ba6.css.map": "/vidly/static/css/main.8f8b8ba6.css.map",
+    "main.2f52c634.js.map": "/vidly/static/js/main.2f52c634.js.map",
+    "787.fba8e351.chunk.js.map": "/vidly/static/js/787.fba8e351.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.32da3ee4.css",
-    "static/js/main.c0abb541.js"
+    "static/css/main.8f8b8ba6.css",
+    "static/js/main.2f52c634.js"
   ]
 }

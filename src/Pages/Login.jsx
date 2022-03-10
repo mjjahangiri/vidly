@@ -16,7 +16,7 @@ export default class Login extends Form {
 
   doSubmit = async () => {
     const errors = await authHandle(
-      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/login",
+      "https://my-json-server.typicode.com/mjjahangiri/json-database/login",
       this.state
     );
     this.setState({ errors });

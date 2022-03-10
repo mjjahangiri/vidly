@@ -49,10 +49,10 @@ export default class App extends Component {
 
   async componentDidMount() {
     const { data: movies } = await axios.get(
-      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies"
+      "https://my-json-server.typicode.com/mjjahangiri/json-database/Movies"
     );
     const { data: genres } = await axios.get(
-      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Genres"
+      "https://my-json-server.typicode.com/mjjahangiri/json-database/Genres"
     );
 
     const allGenres = [
@@ -95,11 +95,11 @@ export default class App extends Component {
     const movieBody = { ...movie };
     movieBody.like = !movieBody.like;
     await axios.put(
-      `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies/${movie.id}`,
+      `https://my-json-server.typicode.com/mjjahangiri/json-database/Movies/${movie.id}`,
       movieBody
     );
     const { data: movies } = await axios.get(
-      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies"
+      "https://my-json-server.typicode.com/mjjahangiri/json-database/Movies"
     );
     this.setState({ movies });
   };
@@ -107,10 +107,10 @@ export default class App extends Component {
   handleDelete = async (movie) => {
     if (window.confirm("آیا برای حذف مطمپن هستید؟")) {
       await axios.delete(
-        `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies/${movie.id}`
+        `https://my-json-server.typicode.com/mjjahangiri/json-database/Movies/${movie.id}`
       );
       const { data: movies } = await axios.get(
-        "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies"
+        "https://my-json-server.typicode.com/mjjahangiri/json-database/Movies"
       );
       this.setState({ movies });
     }
@@ -119,7 +119,7 @@ export default class App extends Component {
 
   movieHandle = async (id) => {
     const { data } = await axios.get(
-      `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/movies/${id}`
+      `https://my-json-server.typicode.com/mjjahangiri/json-database/movies/${id}`
     );
   };
 
@@ -128,7 +128,7 @@ export default class App extends Component {
     if (!jwt) return;
     const user = jwtDecode(jwt);
     const { data } = await axios.get(
-      `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/users/${user.sub}`
+      `https://my-json-server.typicode.com/mjjahangiri/json-database/users/${user.sub}`
     );
     this.setState({ currentUser: data });
   };
