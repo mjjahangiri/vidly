@@ -18,7 +18,7 @@ export default class Register extends Form {
 
   doSubmit = async () => {
     authHandle(
-      "https://622a732d14ccb950d21cb2e4.mockapi.io/register",
+      "https://my-json-server.typicode.com/mjjahangiri/json-database/register",
       this.state
     );
   };

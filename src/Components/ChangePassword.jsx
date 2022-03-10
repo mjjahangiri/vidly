@@ -22,7 +22,7 @@ export default class ChangePassword extends Component {
 
     try {
       await axios.patch(
-        `https://622a732d14ccb950d21cb2e4.mockapi.io/users/${user.id}`,
+        `https://my-json-server.typicode.com/mjjahangiri/json-database/users/${user.id}`,
         {
           password: newPass,
         }

@@ -12,6 +12,7 @@ export default class Home extends Component {
     const { movies, onLike, user, onClick, genres } = this.props;
     const sortedByYear = _.orderBy(movies, "year", "desc");
     const sortedByRate = _.orderBy(movies, "rate", "desc");
+    console.log(movies);
     return (
       <div className="pt-5 d-flex main align-items-center flex-column rtl justify-content-center w-100 mx-auto">
         <div className="row contain w-75 d-flex align-items-center my-5 justify-content-center bg-light">
