@@ -95,7 +95,7 @@ export default function Movies({
               {movies.map((movie, index) => (
                 <tr key={index}>
                   <td className="px-0 py-3 m-0">
-                    <Link to={`/movie/${movie.id}`} className="text-reset">
+                    <Link to={`/movies/${movie.id}`} className="text-reset">
                       {movie.title}
                     </Link>
                   </td>
