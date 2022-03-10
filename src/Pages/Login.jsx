@@ -15,7 +15,10 @@ export default class Login extends Form {
   };
 
   doSubmit = async () => {
-    const errors = await authHandle("http://localhost:3001/login", this.state);
+    const errors = await authHandle(
+      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/login",
+      this.state
+    );
     this.setState({ errors });
   };
 

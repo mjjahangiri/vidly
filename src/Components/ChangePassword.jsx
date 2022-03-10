@@ -21,9 +21,12 @@ export default class ChangePassword extends Component {
       return alert("پسورد جدید و تکرارش یکسان نیستند");
 
     try {
-      await axios.patch(`http://localhost:3001/users/${user.id}`, {
-        password: newPass,
-      });
+      await axios.patch(
+        `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/users/${user.id}`,
+        {
+          password: newPass,
+        }
+      );
       alert("پسورد شما با موفقیت عوض شد");
       window.location = "/";
     } catch (error) {

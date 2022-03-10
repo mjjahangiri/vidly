@@ -48,8 +48,12 @@ export default class App extends Component {
   };
 
   async componentDidMount() {
-    const { data: movies } = await axios.get("http://localhost:3001/Movies");
-    const { data: genres } = await axios.get("http://localhost:3001/Genres");
+    const { data: movies } = await axios.get(
+      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies"
+    );
+    const { data: genres } = await axios.get(
+      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Genres"
+    );
 
     const allGenres = [
       {
@@ -90,29 +94,42 @@ export default class App extends Component {
   handleLike = async (movie) => {
     const movieBody = { ...movie };
     movieBody.like = !movieBody.like;
-    await axios.put(`http://localhost:3001/Movies/${movie.id}`, movieBody);
-    const { data: movies } = await axios.get("http://localhost:3001/Movies");
+    await axios.put(
+      `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies/${movie.id}`,
+      movieBody
+    );
+    const { data: movies } = await axios.get(
+      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies"
+    );
     this.setState({ movies });
   };
 
   handleDelete = async (movie) => {
     if (window.confirm("آیا برای حذف مطمپن هستید؟")) {
-      await axios.delete(`http://localhost:3001/Movies/${movie.id}`);
-      const { data: movies } = await axios.get("http://localhost:3001/Movies");
+      await axios.delete(
+        `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies/${movie.id}`
+      );
+      const { data: movies } = await axios.get(
+        "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/Movies"
+      );
       this.setState({ movies });
     }
     return;
   };
 
   movieHandle = async (id) => {
-    const { data } = await axios.get(`http://localhost:3001/movies/${id}`);
+    const { data } = await axios.get(
+      `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/movies/${id}`
+    );
   };
 
   userHandle = async () => {
     const jwt = localStorage.getItem("token");
     if (!jwt) return;
     const user = jwtDecode(jwt);
-    const { data } = await axios.get(`http://localhost:3001/users/${user.sub}`);
+    const { data } = await axios.get(
+      `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/users/${user.sub}`
+    );
     this.setState({ currentUser: data });
   };
 

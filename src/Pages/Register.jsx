@@ -17,7 +17,10 @@ export default class Register extends Form {
   };
 
   doSubmit = async () => {
-    authHandle("http://localhost:3001/register", this.state);
+    authHandle(
+      "https://github.com/mjjahangiri/json-database/blob/main/vidly.js/register",
+      this.state
+    );
   };
 
   render() {

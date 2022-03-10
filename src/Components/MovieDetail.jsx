@@ -10,7 +10,7 @@ export default class MovieDetail extends Component {
   async componentDidMount() {
     const { id } = this.props;
     const { data: movie } = await axios.get(
-      `http://localhost:3001/movies/${id}`
+      `https://github.com/mjjahangiri/json-database/blob/main/vidly.js/movies/${id}`
     );
     this.setState({ movie });
   }
