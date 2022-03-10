@@ -152,7 +152,7 @@ export default class App extends Component {
             }
           />
           <Route
-            path="/vidly"
+            path="/vidly/"
             exact
             element={
               <Home
