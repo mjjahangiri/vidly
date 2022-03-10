@@ -94,6 +94,7 @@ export default class App extends Component {
   handleLike = async (movie) => {
     const movieBody = { ...movie };
     movieBody.like = !movieBody.like;
+    delete movieBody.id;
     await axios.put(
       `https://my-json-server.typicode.com/mjjahangiri/json-database/Movies/${movie.id}`,
       movieBody
