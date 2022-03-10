@@ -230,7 +230,7 @@ export default class App extends Component {
             exact
             element={<Movie onLike={this.handleLike} />}
           />
-          <Route path="*" exact element={<NotFound />} />
+          <Route path="*" exact element={<Navigate to="/" />} />
         </Routes>
       </>
     );
