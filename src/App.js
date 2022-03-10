@@ -152,7 +152,7 @@ export default class App extends Component {
             }
           />
           <Route
-            path="/vidly/"
+            path="/vidly"
             exact
             element={
               <Home
@@ -230,7 +230,7 @@ export default class App extends Component {
             exact
             element={<Movie onLike={this.handleLike} />}
           />
-          <Route path="*" exact element={<Navigate to="/" />} />
+          <Route path="*" exact element={<NotFound />} />
         </Routes>
       </>
     );
