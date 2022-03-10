@@ -102,6 +102,7 @@ export default class App extends Component {
     const { data: movies } = await axios.get(
       "https://my-json-server.typicode.com/mjjahangiri/json-database/Movies"
     );
+    console.log(movies);
     this.setState({ movies });
   };
 
