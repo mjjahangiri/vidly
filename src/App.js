@@ -169,6 +169,19 @@ export default class App extends Component {
             }
           />
           <Route
+            path="/vidly"
+            exact
+            element={
+              <Home
+                movies={movies}
+                user={currentUser}
+                onLike={this.handleLike}
+                onClick={this.handleGenre}
+                genres={genres}
+              />
+            }
+          />
+          <Route
             path="/movies"
             exact
             element={
