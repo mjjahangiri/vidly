@@ -18,7 +18,7 @@ export default class Register extends Form {
 
   doSubmit = async () => {
     authHandle(
-      "https://my-json-server.typicode.com/mjjahangiri/json-database/register",
+      "https://my-json-server.typicode.com/mjjahangiri/json-database/users",
       this.state
     );
   };
