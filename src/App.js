@@ -21,7 +21,7 @@ export async function authHandle(url, state) {
     const response = await axios.post(url, state.data);
     const jwt = response.data.accessToken;
     localStorage.setItem("token", jwt);
-    window.location = "/";
+    window.location = "/vidly";
   } catch (ex) {
     if (ex.response && ex.response.status === 400) {
       const errors = { ...state.errors };
