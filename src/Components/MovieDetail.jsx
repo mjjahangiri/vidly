@@ -3,15 +3,15 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Like from "../Components/Like";
 import Button from "./Button";
+import url from "../config.json";
 
 export default class MovieDetail extends Component {
   state = { movie: {} };
 
   async componentDidMount() {
     const { id } = this.props;
-    const { data: movie } = await axios.get(
-      `https://my-json-server.typicode.com/mjjahangiri/json-database/movies/${id}`
-    );
+    const { apiUrl } = url;
+    const { data: movie } = await axios.get(`${apiUrl}/movies/${id}`);
     this.setState({ movie });
   }
 

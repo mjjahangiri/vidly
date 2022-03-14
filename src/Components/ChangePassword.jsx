@@ -4,6 +4,7 @@ import Button from "./Button";
 import Input from "./Input";
 import axios from "axios";
 import bcryptjs from "bcryptjs";
+import url from "../config.json";
 export default class ChangePassword extends Component {
   state = {
     oldPass: {},
@@ -13,6 +14,7 @@ export default class ChangePassword extends Component {
 
   passHandle = async (e) => {
     e.preventDefault();
+    const { apiUrl } = url;
     const { user } = this.props;
     const { oldPass, newPass, reNewPass } = this.state;
     if (!bcryptjs.compareSync(oldPass, user.password))
@@ -21,12 +23,9 @@ export default class ChangePassword extends Component {
       return alert("پسورد جدید و تکرارش یکسان نیستند");
 
     try {
-      await axios.patch(
-        `https://my-json-server.typicode.com/mjjahangiri/json-database/users/${user.id}`,
-        {
-          password: newPass,
-        }
-      );
+      await axios.patch(`${apiUrl}/users/${user.id}`, {
+        password: newPass,
+      });
       alert("پسورد شما با موفقیت عوض شد");
       window.location = "/";
     } catch (error) {

@@ -15,6 +15,7 @@ import Header from "./Components/Header";
 import { paginate } from "./Components/Paginate";
 import Logout from "./Components/Logout";
 import ChangePassword from "./Components/ChangePassword";
+import url from "../src/config.json";
 
 export async function authHandle(url, state) {
   try {
@@ -48,12 +49,11 @@ export default class App extends Component {
   };
 
   async componentDidMount() {
-    const { data: movies } = await axios.get(
-      "https://my-json-server.typicode.com/mjjahangiri/json-database/Movies"
-    );
-    const { data: genres } = await axios.get(
-      "https://my-json-server.typicode.com/mjjahangiri/json-database/Genres"
-    );
+    const { apiUrl } = url;
+    const { data: movies } = await axios.get(`${apiUrl}/Movies`);
+    const { data: genres } = await axios.get(`${apiUrl}/Genres`);
+
+    console.log(movies);
 
     const allGenres = [
       {
@@ -92,44 +92,40 @@ export default class App extends Component {
   };
 
   handleLike = async (movie) => {
+    const { apiUrl } = url;
     const movieBody = { ...movie };
     movieBody.like = !movieBody.like;
-    await axios.patch(
-      `https://my-json-server.typicode.com/mjjahangiri/json-database/Movies/${movie.id}`,
-      { like: movieBody.like }
-    );
-    const { data: movies } = await axios.get(
-      "https://my-json-server.typicode.com/mjjahangiri/json-database/Movies"
-    );
+    await axios.put(`${apiUrl}/Movies/${movie.id}`, movieBody, {
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    const { data: movies } = await axios.get(`${apiUrl}/Movies`);
+    console.log(movies);
     this.setState({ movies });
   };
 
   handleDelete = async (movie) => {
+    const { apiUrl } = url;
     if (window.confirm("آیا برای حذف مطمپن هستید؟")) {
-      await axios.delete(
-        `https://my-json-server.typicode.com/mjjahangiri/json-database/Movies/${movie.id}`
-      );
-      const { data: movies } = await axios.get(
-        "https://my-json-server.typicode.com/mjjahangiri/json-database/Movies"
-      );
+      await axios.delete(`${apiUrl}/Movies/${movie.id}`);
+      const { data: movies } = await axios.get(`${apiUrl}/Movies`);
       this.setState({ movies });
     }
     return;
   };
 
   movieHandle = async (id) => {
-    const { data } = await axios.get(
-      `https://my-json-server.typicode.com/mjjahangiri/json-database/movies/${id}`
-    );
+    const { apiUrl } = url;
+    const { data } = await axios.get(`${apiUrl}/movies/${id}`);
   };
 
   userHandle = async () => {
+    const { apiUrl } = url;
     const jwt = localStorage.getItem("token");
     if (!jwt) return;
     const user = jwtDecode(jwt);
-    const { data } = await axios.get(
-      `https://my-json-server.typicode.com/mjjahangiri/json-database/users/${user.sub}`
-    );
+    const { data } = await axios.get(`${apiUrl}/users/${user.sub}`);
     this.setState({ currentUser: data });
   };
 
