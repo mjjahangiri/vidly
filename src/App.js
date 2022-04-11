@@ -53,8 +53,6 @@ export default class App extends Component {
     const { data: movies } = await axios.get(`${apiUrl}/Movies`);
     const { data: genres } = await axios.get(`${apiUrl}/Genres`);
 
-    console.log(movies);
-
     const allGenres = [
       {
         id: "_",
@@ -70,7 +68,6 @@ export default class App extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    console.log(e.target);
   };
 
   handleSort = (name) => {
@@ -117,7 +114,7 @@ export default class App extends Component {
 
   movieHandle = async (id) => {
     const { apiUrl } = url;
-    const { data } = await axios.get(`${apiUrl}/movies/${id}`);
+    const { data } = await axios.get(`${apiUrl}/Movies/${id}`);
   };
 
   userHandle = async () => {
