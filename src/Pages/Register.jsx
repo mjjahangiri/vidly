@@ -3,6 +3,8 @@ import Form from "../Components/Form";
 import { authHandle } from "../App";
 import Joi from "joi-browser";
 import axios from "axios";
+import url from "../config.json";
+
 export default class Register extends Form {
   state = {
     data: { Fname: "", Lname: "", email: "", password: "" },
@@ -17,7 +19,8 @@ export default class Register extends Form {
   };
 
   doSubmit = async () => {
-    authHandle("http://localhost:3001/register", this.state);
+    const { apiUrl } = url;
+    authHandle(`${apiUrl}/users`, this.state);
   };
 
   render() {

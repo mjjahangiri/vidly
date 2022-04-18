@@ -14,7 +14,7 @@
       "title": "Doctor Strange",
       "genre": "Action",
       "year": "2016",
-      "like": true,
+      "like": false,
       "rate": "7.5",
       "poster": "https://plan.ir/image/2021/Sep/21/297-doctor-strange-377657.jpeg"
     },
@@ -31,7 +31,7 @@
       "id": 4,
       "title": "The Dark Knight",
       "genre": "Action",
-      "like": true,
+      "like": false,
       "year": "2008",
       "rate": "9",
       "poster": "https://images.squarespace-cdn.com/content/v1/5fc28a8d8fbfcf634c11b69c/1612823532797-R575JX5GED8FR6AHXYCW/91KkWf50SoL._SL1500_.jpg?format=1000w"
@@ -77,7 +77,7 @@
       "title": "Last Vegas",
       "genre": "Comedy",
       "year": "2013",
-      "like": false,
+      "like": true,
       "rate": "6.6",
       "poster": "https://flxt.tmsimg.com/assets/p9991364_p_v10_aq.jpg"
     },
@@ -122,7 +122,7 @@
       "title": "Elle",
       "genre": "Drama",
       "year": "2016",
-      "like": false,
+      "like": true,
       "rate": "7.1",
       "poster": "https://m.media-amazon.com/images/M/MV5BNGZiYmRjOWUtNGYxMi00YjgwLWI1ODEtMWYwN2YwMTJjN2E4XkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_.jpg"
     },
@@ -184,7 +184,7 @@
       "id": 21,
       "title": "Can You Keep a Secret",
       "genre": "Romantic",
-      "like": false,
+      "like": true,
       "year": "2019",
       "rate": "5.3",
       "poster": "https://m.media-amazon.com/images/M/MV5BMGYxNjQ0MDItODllNS00MTY2LTg2ZGItMzQ0YWNhMjVmNTFjXkEyXkFqcGdeQXVyNDM2NTg0OTQ@._V1_.jpg"

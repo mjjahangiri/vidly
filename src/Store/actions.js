@@ -1,0 +1,10 @@
+export const LIKE_MOVIE = "LikeMovie";
+export const DELETE_MOVIE = "DeleteMovie";
+export const LIST_MOVIES = "ListMovies";
+export const LIST_GENRES = "ListGenres";
+export const SORTED_GENRES = "SortedGenres";
+export const SORTED_ITEMS = "SortedItems";
+export const SELECTED_GENRES = "SelectedGenres";
+export const RESET_PAGE = "ResetPage";
+export const CHANGE_PAGE = "ChangePage";
+export const AUTH_USER = "AuthUser";

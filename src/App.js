@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import * as _ from "lodash";
-import jwtDecode from "jwt-decode";
+import * as actions from "./Store/actions";
 import axios from "axios";
 import Home from "./Pages/Home";
 import Movies from "./Pages/Movies";
@@ -15,13 +15,15 @@ import Header from "./Components/Header";
 import { paginate } from "./Components/Paginate";
 import Logout from "./Components/Logout";
 import ChangePassword from "./Components/ChangePassword";
+import url from "../src/config.json";
+import store from "./Store/store";
 
 export async function authHandle(url, state) {
   try {
     const response = await axios.post(url, state.data);
     const jwt = response.data.accessToken;
     localStorage.setItem("token", jwt);
-    window.location = "/";
+    window.location = "/vidly";
   } catch (ex) {
     if (ex.response && ex.response.status === 400) {
       const errors = { ...state.errors };
@@ -36,21 +38,31 @@ export async function authHandle(url, state) {
 }
 export default class App extends Component {
   state = {
-    movies: [],
+    currentPage: store.getState().currentPage,
     genres: [],
-    currentPage: 1,
-    pageSize: 4,
-    selectedGenre: "All Genres",
-    sorted: { path: "title", order: "asc" },
-    user: [],
-    movie: {},
-    currentUser: "",
+    movies: [],
+    pageSize: store.getState().pageSize,
+    selectedGenre: store.getState().selectedGenre,
+    sorted: store.getState().sorted,
+    currentUser: store.getState().user,
   };
 
   async componentDidMount() {
-    const { data: movies } = await axios.get("http://localhost:3001/Movies");
-    const { data: genres } = await axios.get("http://localhost:3001/Genres");
+    store.dispatch({
+      type: actions.LIST_MOVIES,
+    });
 
+    store.dispatch({
+      type: actions.LIST_GENRES,
+    });
+
+    // this.setState(state);
+
+    const { movies: AllMovies, genres: AllGenres } = await store.getState();
+
+    const movies = _.toArray(await AllMovies);
+    const genres = _.toArray(await AllGenres);
+    const { apiUrl } = url;
     const allGenres = [
       {
         id: "_",
@@ -66,54 +78,84 @@ export default class App extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    console.log(e.target);
   };
 
   handleSort = (name) => {
-    const { path, order } = this.state.sorted;
-    const ord = order === "asc" ? "desc" : "asc";
-    if (path === name) this.setState({ sorted: { path: name, order: ord } });
-    else this.setState({ sorted: { path: name, order: "asc" } });
+    store.dispatch({
+      type: actions.SORTED_ITEMS,
+      payload: {
+        newName: name,
+        lastName: this.state.sorted,
+      },
+    });
+
+    const sorted = store.getState().sorted;
+    this.setState({ sorted });
   };
 
   handleGenre = (genre) => {
-    const selectedGenre = genre.ENname;
-    const currentPage = 1;
+    // Selected Genre
+    store.dispatch({
+      type: actions.SELECTED_GENRES,
+      payload: {
+        genre,
+      },
+    });
+
+    // Reset Current page to 1
+    store.dispatch({
+      type: actions.RESET_PAGE,
+    });
+
+    const selectedGenre = store.getState().selectedGenre;
+    const currentPage = store.getState().currentPage;
+
     this.setState({ selectedGenre, currentPage });
   };
 
   handlePage = (page) => {
-    const currentPage = page;
+    store.dispatch({
+      type: actions.CHANGE_PAGE,
+      payload: {
+        page,
+      },
+    });
+
+    const currentPage = store.getState().currentPage;
     this.setState({ currentPage });
   };
 
+  // Complete with redux
   handleLike = async (movie) => {
-    const movieBody = { ...movie };
-    movieBody.like = !movieBody.like;
-    await axios.put(`http://localhost:3001/Movies/${movie.id}`, movieBody);
-    const { data: movies } = await axios.get("http://localhost:3001/Movies");
+    store.dispatch({
+      type: actions.LIKE_MOVIE,
+      payload: {
+        movie,
+      },
+    });
+    const movies = await store.getState().movies;
     this.setState({ movies });
   };
 
+  // Complete with redux
   handleDelete = async (movie) => {
-    if (window.confirm("آیا برای حذف مطمپن هستید؟")) {
-      await axios.delete(`http://localhost:3001/Movies/${movie.id}`);
-      const { data: movies } = await axios.get("http://localhost:3001/Movies");
-      this.setState({ movies });
-    }
-    return;
-  };
-
-  movieHandle = async (id) => {
-    const { data } = await axios.get(`http://localhost:3001/movies/${id}`);
+    store.dispatch({
+      type: actions.DELETE_MOVIE,
+      payload: {
+        movie,
+      },
+    });
+    const movies = await store.getState().movies;
+    this.setState({ movies });
   };
 
   userHandle = async () => {
-    const jwt = localStorage.getItem("token");
-    if (!jwt) return;
-    const user = jwtDecode(jwt);
-    const { data } = await axios.get(`http://localhost:3001/users/${user.sub}`);
-    this.setState({ currentUser: data });
+    store.dispatch({
+      type: actions.AUTH_USER,
+    });
+
+    const user = await store.getState().user;
+    this.setState({ currentUser: user });
   };
 
   render() {
@@ -129,11 +171,11 @@ export default class App extends Component {
     const filtered =
       selectedGenre === "All Genres"
         ? movies
-        : movies.filter((movie) => movie.genre === selectedGenre);
+        : _.filter(movies, (movie) => movie.genre === selectedGenre);
     const sortMovie = _.orderBy(filtered, sorted.path, sorted.order);
     const totalPage = Math.ceil(sortMovie.length / 4);
     const data = paginate(sortMovie, currentPage, pageSize);
-    const favoriteMovie = movies.filter((movie) => movie.like === true);
+    const favoriteMovie = _.filter(movies, (movie) => movie.like === true);
     return (
       <>
         <Header user={currentUser} />

@@ -1,0 +1,10 @@
+{
+  "Genres": [],
+  "movies": [],
+  "CurrentPage": 1,
+  "user": [],
+  "pageSize": 4,
+  "selectedGenre": "All Genres",
+  "sorted": { "path": "title", "order": "asc" },
+  "currentUser": ""
+}

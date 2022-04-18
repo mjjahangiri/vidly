@@ -2,6 +2,7 @@ import React from "react";
 import Form from "../Components/Form";
 import Joi from "joi-browser";
 import { authHandle } from "../App";
+import url from "../config.json";
 
 export default class Login extends Form {
   state = {
@@ -15,7 +16,8 @@ export default class Login extends Form {
   };
 
   doSubmit = async () => {
-    const errors = await authHandle("http://localhost:3001/login", this.state);
+    const { apiUrl } = url;
+    const errors = await authHandle(`${apiUrl}/login`, this.state);
     this.setState({ errors });
   };
 
